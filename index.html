@@ -7,6 +7,9 @@
 <meta name="description" content="Portfolio de Yazmín Benítez: marcas, webs, producto y contenido diseñados con IA.">
 <meta name="author" content="Yazmín Benítez">
 <link rel="canonical" href="https://yazminbenitez.com/">
+<link rel="alternate" hreflang="es" href="https://yazminbenitez.com/">
+<link rel="alternate" hreflang="en" href="https://yazminbenitez.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://yazminbenitez.com/">
 <meta name="theme-color" content="#F7F7F5">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
@@ -81,6 +84,9 @@ ul{padding:0;list-style:none}
 .nav .cta{justify-self:end;padding:11px 22px;border-radius:var(--radio);background:var(--negro);color:var(--blanco);text-decoration:none;white-space:nowrap;transition:background .3s,color .3s}
 .nav[data-tono="oscuro"] .cta{background:var(--blanco);color:var(--negro)}
 .nav .cta{--relleno:var(--morado)}
+.nav .fin{justify-self:end;display:flex;align-items:center;gap:4px}
+.nav .idioma{padding:11px 12px;border-radius:var(--radio);text-decoration:none;font-weight:500;letter-spacing:.02em;transition:color .3s}
+.nav .idioma:hover{color:var(--acento,var(--morado))}
 @media (hover:hover){.nav .cta:hover,.nav[data-tono="oscuro"] .cta:hover{color:#fff}}
 
 /* portada */
@@ -192,6 +198,8 @@ ul{padding:0;list-style:none}
   .nav li a{padding:8px 0;border-radius:0;font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
   .nav .marca{display:none}
   .nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{color:var(--morado-claro)}
+  .nav .fin{flex-direction:row-reverse;gap:10px}
+  .nav .idioma{font-size:17px;padding:14px 12px}
   .nav .menu .cta{justify-self:auto;padding:14px 24px;font-size:17px;background:var(--blanco);color:var(--negro)}
   .hero .pie,.entrada,.ficha,.indice,.hero .arriba,.campana{grid-template-columns:1fr}
   .retrato{width:46%;order:-1}
@@ -228,7 +236,7 @@ ul{padding:0;list-style:none}
       <li><a href="#aire">Aire</a></li>
       <li><a href="#webs">Webs</a></li>
     </ul>
-    <a class="cta" href="#contacto">Contacto</a>
+    <div class="fin"><a class="idioma" href="en/" lang="en" hreflang="en" aria-label="English version">EN</a><a class="cta" href="#contacto">Contacto</a></div>
   </div>
   <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
 </nav>

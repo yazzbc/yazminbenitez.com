@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yazmín Benítez · Digital Creative &amp; AI Designer</title>
+<meta name="description" content="Portfolio of Yazmín Benítez: brands, websites, product and content designed with AI.">
+<meta name="author" content="Yazmín Benítez">
+<link rel="canonical" href="https://yazminbenitez.com/en/">
+<link rel="alternate" hreflang="es" href="https://yazminbenitez.com/">
+<link rel="alternate" hreflang="en" href="https://yazminbenitez.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://yazminbenitez.com/">
+<meta name="theme-color" content="#F7F7F5">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yazmín Benítez">
+<meta property="og:url" content="https://yazminbenitez.com/en/">
+<meta property="og:title" content="Yazmín Benítez · Digital Creative &amp; AI Designer">
+<meta property="og:description" content="Portfolio of Yazmín Benítez: brands, websites, product and content designed with AI.">
+<meta property="og:image" content="https://yazminbenitez.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Yazmín Benítez, digital creative and AI designer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yazmín Benítez · Digital Creative &amp; AI Designer">
+<meta name="twitter:description" content="Portfolio of Yazmín Benítez: brands, websites, product and content designed with AI.">
+<meta name="twitter:image" content="https://yazminbenitez.com/og.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yazmín Benítez","jobTitle":"Digital Creative & AI Designer","url":"https://yazminbenitez.com/","image":"https://yazminbenitez.com/img/yaz.jpg","email":"mailto:yazminbenitezc@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Valencia","addressCountry":"ES"},"sameAs":["https://www.linkedin.com/in/yazminbenitezc"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blanco:#F7F7F5;--negro:#111111;--morado:#6A5BC4;--morado-claro:#A99EF0;
+  --lado:clamp(20px,4vw,56px);
+  --t-meta:14px;
+  --t-cuerpo:clamp(16px,1.15vw,18px);
+  --t-lead:clamp(22px,2.2vw,32px);
+  --t-decl:clamp(28px,3.5vw,52px);
+  --t-caso:clamp(60px,10.5vw,152px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --radio:10px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--negro);color:var(--negro);font:400 var(--t-cuerpo)/1.5 "Inter Tight",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+a:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}
+p,h1,h2,h3,ul,dl,dd{margin:0}
+ul{padding:0;list-style:none}
+
+/* cada sección es un panel con su color */
+.panel{--fondo:var(--blanco);--texto:var(--negro);--suave:#72726D;--linea:rgba(17,17,17,.14);--acento:var(--morado);
+  position:relative;background:var(--fondo);color:var(--texto);--r:clamp(10px,1.2vw,18px);border-radius:var(--r) var(--r) 0 0;overflow:clip}
+.panel:first-of-type{border-radius:0}
+.panel .int{padding:clamp(72px,9vw,150px) var(--lado) clamp(72px,9vw,150px);transform-origin:50% calc(100% - 50vh);will-change:transform}
+.panel::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--velo,0);pointer-events:none}
+.apila .panel{position:sticky}
+.apila .caso + .panel{margin-top:45vh}
+#aire{--fondo:#F1EADF;--suave:#6B6459;--linea:rgba(17,17,17,.16)}
+#vistta{--fondo:#1D1D21;--texto:#F3F3F3;--suave:#A3A39D;--linea:rgba(255,255,255,.18);--acento:var(--morado-claro)}
+#motion{--fondo:#DCD8EF;--suave:#57526E;--linea:rgba(17,17,17,.16)}
+#contacto{--fondo:#111111;--texto:#F3F3F3;--suave:#A3A39D;--linea:rgba(255,255,255,.18);--acento:var(--morado-claro)}
+
+.meta{font-size:var(--t-meta);color:var(--suave)}
+.mano{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--acento);font-size:clamp(20px,1.8vw,27px);line-height:1.1;letter-spacing:-.01em;display:inline-block}
+
+/* navegación en tres piezas: nombre · casos · contacto */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:clamp(14px,2vw,28px) var(--lado);font-size:15px;color:var(--negro);transition:color .35s}
+.nav[data-tono="oscuro"]{color:#F3F3F3}
+.menu{display:contents}
+.burger{display:none}
+.nav .yo{justify-self:start;padding:6px 0;text-decoration:none;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+.nav ul{display:flex;gap:4px;padding:5px;border-radius:var(--radio);background:rgba(247,247,245,.72);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.07),0 10px 28px -14px rgba(17,17,17,.3);color:var(--negro)}
+.nav ul{position:relative}
+.nav .marca{position:absolute;top:5px;bottom:5px;left:0;width:0;border-radius:6px;background:var(--negro);opacity:0;pointer-events:none;transition:transform .6s var(--ease),width .6s var(--ease),opacity .3s}
+.nav li a{position:relative;z-index:1;display:block;padding:9px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:color .35s}
+.nav li a:hover{color:var(--morado)}
+.nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{color:#fff}
+.nav .cta{justify-self:end;padding:11px 22px;border-radius:var(--radio);background:var(--negro);color:var(--blanco);text-decoration:none;white-space:nowrap;transition:background .3s,color .3s}
+.nav[data-tono="oscuro"] .cta{background:var(--blanco);color:var(--negro)}
+.nav .cta{--relleno:var(--morado)}
+.nav .fin{justify-self:end;display:flex;align-items:center;gap:4px}
+.nav .idioma{padding:11px 12px;border-radius:var(--radio);text-decoration:none;font-weight:500;letter-spacing:.02em;transition:color .3s}
+.nav .idioma:hover{color:var(--acento,var(--morado))}
+@media (hover:hover){.nav .cta:hover,.nav[data-tono="oscuro"] .cta:hover{color:#fff}}
+
+/* portada */
+.hero .int{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding-top:clamp(110px,13vh,170px);padding-bottom:clamp(24px,3vw,44px)}
+.hero h1{font-size:var(--t-decl);font-weight:500;line-height:1.08;letter-spacing:-.035em;max-width:23ch}
+.hero .saludo{margin-bottom:14px}
+.hero .arriba{display:grid;grid-template-columns:1fr auto;gap:var(--lado);align-items:start}
+.retrato{width:clamp(170px,19vw,290px);aspect-ratio:3/4}
+.retrato img{height:100%;object-fit:cover}
+.hero .pie{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);align-items:end;padding-top:22px;border-top:1px solid var(--linea)}
+.hero .pie>p{max-width:30em}
+.util{display:grid;gap:0}
+.util div{display:grid;grid-template-columns:10.5em 1fr;gap:16px;align-items:center;padding-block:10px;border-top:1px solid var(--linea)}
+.util dd{display:flex;flex-wrap:wrap;gap:6px}
+.util dd span{padding:5px 12px;border-radius:6px;box-shadow:inset 0 0 0 1px var(--linea);font-size:var(--t-meta);white-space:nowrap}
+.util div:first-child{border-top:0;padding-top:0}
+.util dt{color:var(--suave);font-size:var(--t-meta)}
+
+/* casos */
+.cab{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid var(--linea);padding-top:14px}
+.caso h2{font-size:var(--t-caso);font-weight:500;line-height:.9;letter-spacing:-.045em;margin-top:clamp(16px,2.6vw,36px)}
+.entrada{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(28px,4.5vw,64px);align-items:end}
+.entrada .lead{font-size:var(--t-lead);font-weight:500;line-height:1.16;letter-spacing:-.025em;grid-column:2;max-width:22ch}
+.entrada .nota{grid-column:1;grid-row:1;align-self:end}
+.galeria{margin-top:clamp(40px,6vw,96px)}
+.marco{overflow:hidden;border-radius:clamp(6px,.6vw,10px);background:rgba(128,128,128,.14);box-shadow:0 0 0 1px var(--linea),0 32px 64px -34px rgba(0,0,0,.5)}
+.marco img,.marco video{display:block;width:100%;height:auto}
+.campana{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:start}
+.campana-txt{display:flex;flex-direction:column;gap:12px;max-width:24em;color:var(--suave)}
+.campana-videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.campana-posts{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.campana-posts img{aspect-ratio:4/5;object-fit:cover}
+.campana + .campana{margin-top:clamp(32px,4.5vw,72px)}
+.campana-txt .sub{align-self:flex-start;color:var(--texto)}
+.dos{display:grid;grid-template-columns:7fr 5fr;gap:clamp(12px,1.6vw,24px);align-items:end}
+.moviles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,32px);align-items:start}
+.moviles .marco{border-radius:clamp(10px,1.5vw,20px)}
+.moviles .marco:nth-child(even){margin-top:clamp(24px,6vw,96px)}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px)}
+.ficha dl{grid-column:1;grid-row:1}
+.ficha dl div{display:grid;grid-template-columns:9em 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--linea)}
+.ficha dt{font-weight:500}
+.ficha dd{color:var(--suave)}
+.ficha .izq{grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.ficha .izq p{max-width:26em}
+.boton{display:inline-block;padding:15px 26px;border-radius:var(--radio);background:var(--texto);color:var(--fondo);text-decoration:none;font-weight:500;transition:color .35s,transform .2s}
+/* hover de botones: el color sube desde abajo como una ola y la flecha sale y vuelve a entrar */
+.boton,.nav .cta{position:relative;overflow:hidden;isolation:isolate}
+.boton::before,.nav .cta::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--relleno,var(--morado-claro));border-radius:60% 60% 0 0/100% 100% 0 0;transform:translateY(102%);transition:transform .6s var(--ease),border-radius .6s var(--ease)}
+.boton .fl{transition:transform .5s var(--ease)}
+@media (hover:hover){
+  .boton:hover::before,.nav .cta:hover::before{transform:none;border-radius:0}
+  .boton:hover{color:var(--negro)}
+  .boton:hover .fl{animation:flecha .5s var(--ease)}
+}
+.boton:active,.nav .cta:active{transform:scale(.97)}
+@keyframes flecha{0%{transform:none;opacity:1}45%{transform:translate(.7em,-.7em);opacity:0}46%{transform:translate(-.7em,.7em);opacity:0}100%{transform:none;opacity:1}}
+.fl{display:inline-block;width:.6em;height:.6em;margin-left:.38em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.4'/%3E%3C/svg%3E") center/contain no-repeat}
+.sub{position:relative;text-decoration:none;font-weight:500}
+.sub::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform-origin:left;transition:transform .45s var(--ease)}
+.sub:hover::after{transform:scaleX(0);transform-origin:right}
+
+/* webs: índice con visor */
+.indice{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:stretch}
+.visor{position:relative;min-height:320px;border-radius:clamp(6px,.6vw,10px);overflow:hidden;background:rgba(128,128,128,.14)}
+.visor img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.06);filter:blur(16px);transition:opacity .6s var(--ease),transform 1s var(--ease),filter 1s var(--ease)}
+.visor img.on{opacity:1;transform:none;filter:none}
+.fila{display:grid;grid-template-columns:2.2em 1fr auto;gap:14px;align-items:baseline;padding-block:clamp(11px,1.15vw,17px);border-top:1px solid var(--linea);text-decoration:none;transition:color .3s}
+.fila .quien,.fila .n{transition:transform .45s var(--ease)}
+.fila .quien .meta{display:block;margin-top:3px}
+.lista .fila:last-child{border-bottom:1px solid var(--linea)}
+.fila h3{font-size:clamp(20px,2vw,30px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.fila .mini{display:none}
+.fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
+.fila:hover .quien,.fila:focus-visible .quien,.fila.on .quien,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
+.fila:hover .meta,.fila.on .meta{color:inherit}
+
+/* contacto */
+#contacto .int{min-height:100svh;min-height:100lvh;display:flex;flex-direction:column;padding-top:clamp(96px,11vh,150px);padding-bottom:clamp(40px,5vw,72px)}
+.firma{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(18px,2.2vw,30px);padding-block:clamp(40px,6vw,90px)}
+.firma h2{font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(48px,7vw,116px);line-height:1;letter-spacing:-.02em}
+.correo{display:inline-block;font-size:clamp(18px,1.6vw,24px);font-weight:500;letter-spacing:-.02em;text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:6px;transition:border-color .4s,color .3s}
+.correo:hover{border-color:var(--acento);color:var(--acento)}
+.enlaces{display:flex;gap:28px;font-size:var(--t-meta);color:var(--suave)}
+.enlaces a{color:var(--texto);text-decoration:none}
+
+/* animación: solo con JS y sin «reducir movimiento» */
+.anim .pal{display:inline-block;overflow:hidden;vertical-align:top;padding:.06em .12em .16em;margin:-.06em -.12em -.16em}
+.anim .pal>span{display:inline-block;transform:translateY(125%);filter:blur(14px);opacity:0}
+.anim [data-sube]{opacity:0;transform:translateY(26px)}
+.anim .marco[data-abre]:not(.visto){opacity:0}
+.anim .marco[data-abre]:not(.visto) img,.anim .marco[data-abre]:not(.visto) video{transform:scale(1.12);filter:blur(18px)}
+
+@media (max-width:820px){
+  .nav{grid-template-columns:1fr auto;padding:10px var(--lado)}
+  .nav::before{content:"";position:absolute;inset:0;background:rgba(247,247,245,.8);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);transition:background .35s}
+  .nav[data-tono="oscuro"]::before{background:rgba(22,22,25,.78)}
+  .nav.abierto,.nav.abierto[data-tono="oscuro"]{color:#F3F3F3}
+  .nav .yo,.burger{position:relative;z-index:2}
+  .burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-11px;padding:0;border:0;background:none;color:inherit;cursor:pointer}
+  .burger span{grid-area:1/1;width:22px;height:1.5px;background:currentColor;transition:transform .4s var(--ease)}
+  .burger span:first-child{transform:translateY(-4px)}
+  .burger span:last-child{transform:translateY(4px)}
+  .nav.abierto .burger span:first-child{transform:rotate(45deg)}
+  .nav.abierto .burger span:last-child{transform:rotate(-45deg)}
+  .menu{position:fixed;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:32px;padding:96px var(--lado) 48px;background:var(--negro);color:#F3F3F3;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+  .nav.abierto .menu{opacity:1;visibility:visible}
+  .nav ul{flex-direction:column;gap:0;padding:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;color:inherit}
+  .nav li a{padding:8px 0;border-radius:0;font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
+  .nav .marca{display:none}
+  .nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{color:var(--morado-claro)}
+  .nav .fin{flex-direction:row-reverse;gap:10px}
+  .nav .idioma{font-size:17px;padding:14px 12px}
+  .nav .menu .cta{justify-self:auto;padding:14px 24px;font-size:17px;background:var(--blanco);color:var(--negro)}
+  .hero .pie,.entrada,.ficha,.indice,.hero .arriba,.campana{grid-template-columns:1fr}
+  .retrato{width:46%;order:-1}
+  .entrada .lead,.ficha dl,.ficha .izq{grid-column:1}
+  .ficha dl,.ficha .izq{grid-row:auto}
+  .entrada .nota{grid-row:auto}
+  .dos{grid-template-columns:1fr}
+  .moviles{grid-template-columns:1fr 1fr}
+  .ficha dl div{grid-template-columns:1fr;gap:4px}
+  .visor{display:none}
+  .lista{display:grid;grid-template-columns:1fr 1fr;gap:32px 14px}
+  .fila,.lista .fila:last-child{display:flex;flex-direction:column;gap:6px;padding:0;border:0}
+  .fila .n{display:none}
+  .fila .mini{display:block;order:-1;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:6px;border-radius:clamp(6px,.6vw,10px);box-shadow:0 0 0 1px var(--linea),0 18px 36px -24px rgba(0,0,0,.45)}
+  .fila h3{font-size:19px}
+  .fila h3::before{content:"";display:inline-block;width:.4em;height:.4em;margin-right:.42em;background:var(--morado);vertical-align:.12em}
+  .fila .hice{color:var(--texto)}
+  .fila:hover .quien,.fila.on .quien{transform:none}
+  .fila.on{color:inherit}.fila.on .meta{color:var(--suave)}.fila.on .hice{color:var(--texto)}
+  .ficha .izq{align-items:flex-start}
+}
+@media print{.nav{display:none}.apila .caso + .panel{margin-top:0}.panel{break-inside:avoid-page;border-radius:0}.hero .int{min-height:0}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <a class="yo" href="#inicio">Yazmín Benítez</a>
+  <div class="menu" id="menu">
+    <ul>
+      <li class="marca" aria-hidden="true"></li>
+      <li><a href="#vistta">Vistta</a></li>
+      <li><a href="#motion">Motion</a></li>
+      <li><a href="#aire">Aire</a></li>
+      <li><a href="#webs">Websites</a></li>
+    </ul>
+    <div class="fin"><a class="idioma" href="../" lang="es" hreflang="es" aria-label="Versión en español">ES</a><a class="cta" href="#contacto">Contact</a></div>
+  </div>
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</nav>
+
+<main>
+<section class="panel hero" id="inicio">
+  <div class="int">
+    <div class="arriba">
+     <div>
+      <p class="mano saludo" data-sube>Hi, I’m Yaz</p>
+      <h1 data-parte>I’m a digital creative designer. I design brands, websites and social media content.</h1>
+     </div>
+     <div class="marco retrato" data-abre><img src="../img/yaz.jpg" width="720" height="960" alt="Portrait of Yazmín Benítez"></div>
+    </div>
+    <div class="pie">
+      <p data-sube>My background combines marketing and digital product design.<br>AI lets me take an idea all the way through, including the parts that used to depend on technical skills or on more time than I had. That frees me to focus on the human side, on creativity and on exploration.</p>
+      <dl class="util" data-sube>
+        <div><dt>Design</dt><dd><span>Figma</span><span>Adobe Creative Cloud</span><span>Webflow</span></dd></div>
+        <div><dt>AI &amp; Automation</dt><dd><span>AI agents</span><span>Claude Code</span><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>ElevenLabs</span><span>n8n</span><span>Make</span></dd></div>
+        <div><dt>Video</dt><dd><span>CapCut</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="panel caso" id="vistta">
+  <div class="int">
+    <div class="cab meta"><span>01</span><span>Product and marketing · kingseo. / Kocoro</span></div>
+    <h2 data-parte>Vistta</h2>
+    <div class="entrada">
+      <p class="mano nota" data-sube>SaaS product and AI-generated images</p>
+      <p class="lead" data-sube>A platform that turns a photo of an empty room into a professional render for real estate agencies and architecture studios.</p>
+    </div>
+    <div class="galeria dos">
+      <div class="marco" data-abre><img src="../img/vistta-4.jpg" width="1440" height="900" alt="The Vistta app: an empty room on the left and the furnished proposals on the right"></div>
+      <div class="marco" data-abre><img src="../img/vistta-comparativa.jpg" width="1342" height="823" alt="A living room before and after Vistta: empty on the left, furnished on the right"></div>
+    </div>
+    <div class="campana">
+      <div class="campana-txt" data-sube>
+        <p class="mano">Meta Ads campaign</p>
+        <p>Two of the videos we used in Vistta’s ads on Instagram and Facebook.</p>
+      </div>
+      <div class="campana-videos">
+        <div class="marco" data-abre><video src="../img/vistta-ad-1.mp4" poster="../img/vistta-ad-1.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Vistta ad: a dimly lit living room with a view of Florence"></video></div>
+        <div class="marco" data-abre><video src="../img/vistta-ad-2.mp4" poster="../img/vistta-ad-2.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Vistta ad: a reading corner with a woven leather armchair"></video></div>
+      </div>
+    </div>
+    <div class="campana">
+      <div class="campana-txt" data-sube>
+        <p class="mano">Instagram posts</p>
+        <p>A few posts from Vistta’s account, with AI-generated images.</p>
+        <a class="sub" href="https://www.instagram.com/vistta_app/" target="_blank" rel="noopener">See @vistta_app<i class="fl" aria-hidden="true"></i></a>
+      </div>
+      <div class="campana-posts">
+        <div class="marco" data-abre><img src="../img/vistta-post-1.jpg" width="760" height="950" loading="lazy" alt="Vistta post: an open living room at sunset with a light sofa and wooden furniture"></div>
+        <div class="marco" data-abre><img src="../img/vistta-post-2.jpg" width="760" height="950" loading="lazy" alt="Vistta post: a stone bathtub in front of an arched window with plants"></div>
+        <div class="marco" data-abre><img src="../img/vistta-post-3.jpg" width="760" height="950" loading="lazy" alt="Vistta post: a bouclé armchair in front of a colourful mural"></div>
+        <div class="marco" data-abre><img src="../img/vistta-post-4b.jpg" width="760" height="950" loading="lazy" alt="Vistta post: a bright white living room with a light sofa and woven leather chairs"></div>
+      </div>
+    </div>
+    <div class="ficha">
+      <div class="izq" data-sube>
+        <a class="boton" href="https://www.visttahome.com/es" target="_blank" rel="noopener">Visit visttahome.com<i class="fl" aria-hidden="true"></i></a>
+      </div>
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>An empty room shows little of what it could become. Real estate agencies and studios need to show that potential to their clients without furnishing every space.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>An app where you upload a photo of the room and get furnished proposals back, along with a website that presents the product.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I was involved from start to finish: research, UX/UI for the website and the app, SEO, art direction, social media content and Meta Ads campaigns.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>Image generation with Midjourney, NanoBanana and Runway, with many rounds of iteration until the results were believable.<br>The website and the entire SaaS are built with AI agents configured specifically for the project.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="panel caso" id="motion">
+  <div class="int">
+    <div class="cab meta"><span>02</span><span>Variant system · Musho – AI Studio</span></div>
+    <h2 data-parte>Motion</h2>
+    <div class="entrada">
+      <p class="mano nota" data-sube>A library of animated templates to customise</p>
+      <p class="lead" data-sube>An in-house tool that adapts each animated piece to social media and ad formats.</p>
+    </div>
+    <div class="galeria">
+      <div class="marco" data-abre><img src="../img/motion.jpg" width="1440" height="900" alt="The Motion editor: a catalogue of animated templates on the left, the piece in the centre and the format and duration settings on the right"></div>
+    </div>
+    <div class="ficha">
+      <div class="izq" data-sube>
+        <a class="boton" href="https://motion.mushostudio.com/" target="_blank" rel="noopener">Try motion.mushostudio.com<i class="fl" aria-hidden="true"></i></a>
+      </div>
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>Adapting the same piece to every format, message and audience is repetitive work that takes up many hours of a creative team’s time.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>You pick an animated template, adjust the palette, typography, photo and format, and the variant is ready to publish.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>Design direction for the template catalogue, the palettes, the typography and the photo selection.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>The tool is built with AI agents that I configured and directed.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="panel caso" id="aire">
+  <div class="int">
+    <div class="cab meta"><span>03</span><span>Personal project · 2026</span></div>
+    <h2 data-parte>Aire</h2>
+    <div class="entrada">
+      <p class="mano nota" data-sube>Built in a week</p>
+      <p class="lead" data-sube>A wellbeing app that guides you through 90+ science-based practices and helps you turn them into habits.</p>
+    </div>
+    <div class="galeria moviles">
+      <div class="marco" data-abre><img src="../img/aire-v4-bienvenida.jpg" width="640" height="1385" alt="Aire welcome screen, with the name over a sunset sky and the question “What do you want to improve?” (in Spanish)"></div>
+      <div class="marco" data-abre><img src="../img/aire-v4-hoy.jpg" width="640" height="1385" alt="Aire “Hoy” (Today) screen, with the goal “Less anxiety and stress” and the current practice over a photo of the sky"></div>
+      <div class="marco" data-abre><img src="../img/aire-v4-ahora-musica.jpg" width="640" height="1384" alt="Aire “Ahora” (Now) screen, asking “How do you feel?” and offering states such as Anxious or Overwhelmed"></div>
+      <div class="marco" data-abre><img src="../img/aire-v4-respira-anillo.jpg" width="640" height="1385" alt="A guided breathing player in Aire, with a ring that sets the pace"></div>
+    </div>
+    <div class="ficha">
+      <div class="izq" data-sube>
+        <p class="meta">The practices come from the books of neuroscientist Ana Ibáñez. Aire is a personal project I started on my own initiative, for the joy of creating an app made to measure for me, from start to finish. It is not for sale.</p>
+      </div>
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>There are many practices that help you feel better. In a moment of anxiety it can be hard to remember which one might help, and keeping them up over time takes consistency.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>“Ahora” (Now) offers a guided practice based on how you feel in that moment, especially when it feels urgent.<br>“Hoy” (Today) suggests up to three a day so that repeating them is easy, with the aim of growing them into habits.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>Concept, research, UX/UI, copywriting and art direction.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>I built the app with AI agents that I configured and directed, and used AI to generate the visual assets (the sky images). I went from idea to production in under a week, with four versions tested in real use.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="panel caso" id="webs">
+  <div class="int">
+    <div class="cab meta"><span>04</span><span>Web design and development</span></div>
+    <h2 data-parte>Websites</h2>
+    <div class="entrada">
+      <p class="lead" data-sube>Websites designed and developed for brands in Spain, Mexico and the United States.</p>
+    </div>
+    <div class="indice">
+      <div class="visor" aria-hidden="true">
+        <img src="../img/clinica.jpg" alt="" class="on">
+        <img src="../img/soul.jpg" alt="">
+        <img src="../img/ivonne.jpg" alt="">
+        <img src="../img/synthesis.jpg" alt="">
+        <img src="../img/simbiotica.jpg" alt="">
+        <img src="../img/inspiration.jpg" alt="">
+        <img src="../img/inputs.jpg" alt="">
+        <img src="../img/norgestion.jpg" alt="">
+      </div>
+      <div class="lista">
+        <a class="fila on" href="https://www.clinica360vision.com/" target="_blank" rel="noopener"><span class="meta n">01</span><div class="quien"><h3>360 Vision</h3><span class="meta">Eye clinic</span></div><span class="meta hice">Design and development<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/clinica.jpg" alt="360 Vision website" loading="lazy"></a>
+        <a class="fila" href="https://www.soulsoothingmethod.com/" target="_blank" rel="noopener"><span class="meta n">02</span><div class="quien"><h3>Soul Soothing Method</h3><span class="meta">Family wellbeing</span></div><span class="meta hice">Design and development<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/soul.jpg" alt="Soul Soothing Method website" loading="lazy"></a>
+        <a class="fila" href="https://ivonnegama.com/" target="_blank" rel="noopener"><span class="meta n">03</span><div class="quien"><h3>Ivonne Gama</h3><span class="meta">Creativity and speaking</span></div><span class="meta hice">Branding and website<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/ivonne.jpg" alt="Ivonne Gama website" loading="lazy"></a>
+        <a class="fila" href="https://www.synthesis-coach.com/" target="_blank" rel="noopener"><span class="meta n">04</span><div class="quien"><h3>Synthesis</h3><span class="meta">Creative coaching</span></div><span class="meta hice">Design and development · at Kocoro<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/synthesis.jpg" alt="Synthesis website" loading="lazy"></a>
+        <a class="fila" href="https://www.simbiotica.online/" target="_blank" rel="noopener"><span class="meta n">05</span><div class="quien"><h3>Simbiótica</h3><span class="meta">Property developer</span></div><span class="meta hice">Design and development<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/simbiotica.jpg" alt="Simbiótica website" loading="lazy"></a>
+        <a class="fila" href="https://www.inspirationexcursions.com/" target="_blank" rel="noopener"><span class="meta n">06</span><div class="quien"><h3>Inspiration Excursions</h3><span class="meta">Corporate experiences</span></div><span class="meta hice">Design and development<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/inspiration.jpg" alt="Inspiration Excursions website" loading="lazy"></a>
+        <a class="fila" href="https://www.getmoreinputs.com/" target="_blank" rel="noopener"><span class="meta n">07</span><div class="quien"><h3>yuxta</h3><span class="meta">Creativity consultancy</span></div><span class="meta hice">Design and development<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/inputs.jpg" alt="yuxta website" loading="lazy"></a>
+        <a class="fila" href="https://www.norgestion.com/" target="_blank" rel="noopener"><span class="meta n">08</span><div class="quien"><h3>NORGESTION</h3><span class="meta">Financial advisory</span></div><span class="meta hice">Website update and CRM · at Kocoro<i class="fl" aria-hidden="true"></i></span><img class="mini" src="../img/norgestion.jpg" alt="NORGESTION website" loading="lazy"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="contacto">
+  <div class="int">
+    <div class="cab meta"><span>05</span><span>Contact</span></div>
+    <div class="firma">
+      <h2 data-sube>Let’s talk</h2>
+      <a class="correo" href="mailto:yazminbenitezc@gmail.com" data-sube>yazminbenitezc@gmail.com</a>
+      <p class="enlaces" data-sube><a href="https://www.linkedin.com/in/yazminbenitezc" target="_blank" rel="noopener">LinkedIn<i class="fl" aria-hidden="true"></i></a><span>Valencia, Spain</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var paneles = Array.from(document.querySelectorAll('.panel'));
+
+  // Navegación: marca la sección en la que estás
+  var nav = document.querySelector('.nav'), enlaces = Array.from(nav.querySelectorAll('li a, .cta'));
+  var oscuros = { vistta: 1, contacto: 1 };
+  var marca = nav.querySelector('.marca');
+  function marcar(id){
+    var act = null;
+    enlaces.forEach(function(a){ var si = a.getAttribute('href') === '#' + id; a.setAttribute('aria-current', si ? 'true' : 'false'); if (si && a.closest('li')) act = a; });
+    if (act) { marca.style.width = act.offsetWidth + 'px'; marca.style.transform = 'translateX(' + act.offsetLeft + 'px)'; marca.style.opacity = 1; }
+    else marca.style.opacity = 0;
+  }
+  var burger = nav.querySelector('.burger');
+  function menu(ab){
+    nav.classList.toggle('abierto', ab); burger.setAttribute('aria-expanded', ab); burger.setAttribute('aria-label', ab ? 'Close menu' : 'Open menu');
+    document.documentElement.style.overflow = ab ? 'hidden' : '';
+    if (window.__lenis) { if (ab) __lenis.stop(); else __lenis.start(); }
+  }
+  burger.addEventListener('click', function(){ menu(!nav.classList.contains('abierto')); });
+  nav.querySelectorAll('.menu a, .yo').forEach(function(a){ a.addEventListener('click', function(){ menu(false); }); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape') menu(false); });
+  function seccionActual(){
+    var linea = innerHeight * .45, id = 'inicio';
+    paneles.forEach(function(p){ var r = p.getBoundingClientRect(); if (r.top <= linea) id = p.id; });
+    if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) id = 'contacto';
+    marcar(id);
+    // el nombre y el botón cambian de color según el panel que tienen debajo
+    var arriba = 'inicio';
+    paneles.forEach(function(p){ if (p.getBoundingClientRect().top <= 34) arriba = p.id; });
+    nav.dataset.tono = oscuros[arriba] ? 'oscuro' : 'claro';
+  }
+  addEventListener('scroll', seccionActual, { passive: true });
+  addEventListener('resize', seccionActual);
+  seccionActual();
+
+  // Webs: el visor enseña la web de la fila que tocas
+  var filas = Array.from(document.querySelectorAll('.fila')), fotos = Array.from(document.querySelectorAll('.visor img'));
+  filas.forEach(function(f, i){
+    function ver(){ filas.forEach(function(x){ x.classList.remove('on'); }); fotos.forEach(function(x){ x.classList.remove('on'); }); f.classList.add('on'); if (fotos[i]) fotos[i].classList.add('on'); }
+    f.addEventListener('mouseenter', ver); f.addEventListener('focus', ver);
+  });
+
+  // Vídeos: se reproducen solo mientras están a la vista
+  if ('IntersectionObserver' in window) { var ojo = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) e.target.play().catch(function(){}); else e.target.pause(); }); }, { threshold: .35 }); document.querySelectorAll('video').forEach(function(v){ ojo.observe(v); }); }
+
+  var menos = matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('print').matches;
+  if (menos || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Títulos partidos en palabras con máscara
+  document.querySelectorAll('[data-parte]').forEach(function(el){
+    var texto = el.textContent; el.setAttribute('aria-label', texto); el.textContent = '';
+    texto.split(/\s+/).forEach(function(t, i){
+      if (i) el.appendChild(document.createTextNode(' '));
+      var p = document.createElement('span'); p.className = 'pal'; p.setAttribute('aria-hidden', 'true');
+      var s = document.createElement('span'); s.textContent = t; p.appendChild(s); el.appendChild(p);
+    });
+  });
+  document.documentElement.classList.add('anim', 'apila');
+
+  // Scroll suave
+  if (window.Lenis) {
+    var lenis = window.__lenis = new Lenis({ duration: 1.1, anchors: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // Paneles apilados: cada uno se queda quieto al acabar y el siguiente lo cubre
+  function pegar(){ paneles.forEach(function(p, i){ p.style.zIndex = i + 1; p.style.top = Math.min(0, innerHeight - p.offsetHeight) + 'px'; }); if (paneles[1]) paneles[1].style.marginTop = paneles[0].offsetHeight > innerHeight + 40 ? '40vh' : ''; }
+  pegar(); addEventListener('resize', pegar);
+  paneles.forEach(function(p, i){
+    var sig = paneles[i + 1]; if (!sig) return;
+    gsap.to(p.querySelector('.int'), { scale: .95, ease: 'none', scrollTrigger: { trigger: sig, start: 'top 70%', end: 'top top', scrub: true } });
+    gsap.to(p, { '--velo': .45, ease: 'none', scrollTrigger: { trigger: sig, start: 'top 70%', end: 'top top', scrub: true } });
+  });
+
+  var suave = 'expo.out';
+  if (fotos[0]) { fotos[0].classList.remove('on'); ScrollTrigger.create({ trigger: '.visor', start: 'top 80%', once: true, onEnter: function(){ if (!document.querySelector('.visor img.on')) fotos[0].classList.add('on'); } }); }
+  document.querySelectorAll('[data-parte]').forEach(function(el){
+    var largo = el.querySelectorAll('.pal').length > 6;
+    gsap.to(el.querySelectorAll('.pal > span'), { y: 0, filter: 'blur(0px)', opacity: 1, duration: largo ? .9 : 1.2, ease: suave, stagger: largo ? .025 : .07, scrollTrigger: { trigger: el, start: 'top 92%' } });
+  });
+  ScrollTrigger.batch('[data-sube]', { start: 'top 92%', onEnter: function(els){ gsap.to(els, { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .08 }); } });
+  document.querySelectorAll('.marco[data-abre]').forEach(function(m, i){
+    var img = m.querySelector('img, video');
+    gsap.timeline({ scrollTrigger: { trigger: m, start: 'top 94%' }, delay: (i % 4) * .08 })
+      .fromTo(m, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 1.1, ease: suave }, 0)
+      .to(img, { scale: 1, filter: 'blur(0px)', duration: 1.5, ease: suave, onComplete: function(){ m.classList.add('visto'); gsap.set(img, { clearProps: 'transform,filter' }); } }, 0);
+  });
+  // Contacto: al llegar arriba, sus esquinas se rellenan hasta cubrir la pantalla
+  var fin = document.getElementById('contacto'), r0 = parseFloat(getComputedStyle(fin).borderTopLeftRadius) || 0;
+  gsap.fromTo(fin, { '--r': r0 + 'px' }, { '--r': '0px', duration: .7, ease: 'back.out(2.2)', scrollTrigger: { trigger: fin, start: 'top 6px', toggleActions: 'play none none reverse' } });
+  gsap.utils.toArray('.moviles .marco').forEach(function(m, i){
+    gsap.to(m, { yPercent: i % 2 ? -8 : 5, ease: 'none', scrollTrigger: { trigger: '.moviles', start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  addEventListener('load', function(){ pegar(); ScrollTrigger.refresh(); seccionActual(); });
+})();
+</script>
+</body>
+</html>
