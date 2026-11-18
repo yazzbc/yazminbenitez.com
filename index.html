@@ -118,7 +118,7 @@ ul{padding:0;list-style:none}
 .anim .pal{display:inline-block;overflow:hidden;vertical-align:top;padding:.06em .12em .16em;margin:-.06em -.12em -.16em}
 .anim .pal>span{display:inline-block;transform:translateY(125%);filter:blur(14px);opacity:0}
 .anim [data-sube]{opacity:0;transform:translateY(26px)}
-.anim .marco[data-abre]{clip-path:inset(100% 0 0 0)}
+.anim .marco[data-abre]:not(.visto){clip-path:inset(100% 0 0 0)}
 .anim .marco[data-abre]:not(.visto) img{transform:scale(1.25)}
 
 @media (max-width:820px){
@@ -185,7 +185,7 @@ ul{padding:0;list-style:none}
     </div>
     <div class="galeria moviles">
       <div class="marco" data-abre><img src="img/aire-v4-hoy.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire, con el objetivo «Menos ansiedad y estrés» y la práctica del momento sobre una foto de cielo"></div>
-      <div class="marco" data-abre><img src="img/aire-v4-ahora-musica.jpg" width="640" height="1385" alt="Pantalla Ahora de Aire, que pregunta «¿Cómo te sientes?» y ofrece estados como Ansiosa o Desbordada"></div>
+      <div class="marco" data-abre><img src="img/aire-v4-ahora-musica.jpg" width="640" height="1384" alt="Pantalla Ahora de Aire, que pregunta «¿Cómo te sientes?» y ofrece estados como Ansiosa o Desbordada"></div>
       <div class="marco" data-abre><img src="img/aire-v4-respira-anillo.jpg" width="640" height="1385" alt="Reproductor de una respiración guiada en Aire, con un anillo que marca el ritmo"></div>
       <div class="marco" data-abre><img src="img/aire-v4-hoy-noche.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire en su versión de noche"></div>
     </div>
@@ -376,7 +376,7 @@ ul{padding:0;list-style:none}
     var img = m.querySelector('img');
     gsap.timeline({ scrollTrigger: { trigger: m, start: 'top 94%' } })
       .to(m, { clipPath: 'inset(0% 0 0 0)', duration: 1.2, ease: suave, delay: (i % 4) * .07 }, 0)
-      .to(img, { scale: 1, duration: 1.6, ease: suave, onComplete: function(){ m.classList.add('visto'); gsap.set(img, { clearProps: 'transform' }); } }, 0);
+      .to(img, { scale: 1, duration: 1.6, ease: suave, onComplete: function(){ m.classList.add('visto'); gsap.set(img, { clearProps: 'transform' }); gsap.set(m, { clearProps: 'clipPath' }); } }, 0);
   });
   gsap.utils.toArray('.moviles .marco').forEach(function(m, i){
     gsap.to(m, { yPercent: i % 2 ? -8 : 5, ease: 'none', scrollTrigger: { trigger: '.moviles', start: 'top bottom', end: 'bottom top', scrub: true } });
