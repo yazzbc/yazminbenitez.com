@@ -105,7 +105,10 @@ ul{padding:0;list-style:none}
 .entrada .nota{grid-column:1;grid-row:1;align-self:end}
 .galeria{margin-top:clamp(40px,6vw,96px)}
 .marco{overflow:hidden;border-radius:clamp(6px,.6vw,10px);background:rgba(128,128,128,.14);box-shadow:0 0 0 1px var(--linea),0 32px 64px -34px rgba(0,0,0,.5)}
-.marco img{width:100%;height:auto}
+.marco img,.marco video{display:block;width:100%;height:auto}
+.campana{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:end}
+.campana-txt{display:flex;flex-direction:column;gap:12px;max-width:24em;color:var(--suave)}
+.campana-videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
 .dos{display:grid;grid-template-columns:7fr 5fr;gap:clamp(12px,1.6vw,24px);align-items:end}
 .moviles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,32px);align-items:start}
 .moviles .marco{border-radius:clamp(10px,1.5vw,20px)}
@@ -163,7 +166,7 @@ ul{padding:0;list-style:none}
 .anim .pal>span{display:inline-block;transform:translateY(125%);filter:blur(14px);opacity:0}
 .anim [data-sube]{opacity:0;transform:translateY(26px)}
 .anim .marco[data-abre]:not(.visto){opacity:0}
-.anim .marco[data-abre]:not(.visto) img{transform:scale(1.12);filter:blur(18px)}
+.anim .marco[data-abre]:not(.visto) img,.anim .marco[data-abre]:not(.visto) video{transform:scale(1.12);filter:blur(18px)}
 
 @media (max-width:820px){
   .nav{grid-template-columns:1fr auto;padding:10px var(--lado)}
@@ -183,7 +186,7 @@ ul{padding:0;list-style:none}
   .nav li a{padding:8px 0;border-radius:0;font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
   .nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{background:none;color:var(--morado-claro)}
   .nav .menu .cta{justify-self:auto;padding:14px 24px;font-size:17px;background:var(--blanco);color:var(--negro)}
-  .hero .pie,.entrada,.ficha,.indice,.hero .arriba{grid-template-columns:1fr}
+  .hero .pie,.entrada,.ficha,.indice,.hero .arriba,.campana{grid-template-columns:1fr}
   .retrato{width:46%;order:-1}
   .entrada .lead,.ficha dl,.ficha .izq{grid-column:1}
   .ficha dl,.ficha .izq{grid-row:auto}
@@ -255,6 +258,16 @@ ul{padding:0;list-style:none}
     <div class="galeria dos">
       <div class="marco" data-abre><img src="img/vistta-4.jpg" width="1440" height="900" alt="Aplicación de Vistta: una habitación vacía a la izquierda y las propuestas amuebladas a la derecha"></div>
       <div class="marco" data-abre><img src="img/vistta-comparativa.jpg" width="1342" height="823" alt="Comparativa de un salón antes y después de pasar por Vistta: vacío a la izquierda y amueblado a la derecha"></div>
+    </div>
+    <div class="campana">
+      <div class="campana-txt" data-sube>
+        <p class="mano">Campaña en Meta Ads</p>
+        <p>Dos de los vídeos que usamos en los anuncios de Vistta para Instagram y Facebook.</p>
+      </div>
+      <div class="campana-videos">
+        <div class="marco" data-abre><video src="img/vistta-ad-1.mp4" poster="img/vistta-ad-1.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Anuncio de Vistta: un salón en penumbra con vistas a Florencia"></video></div>
+        <div class="marco" data-abre><video src="img/vistta-ad-2.mp4" poster="img/vistta-ad-2.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Anuncio de Vistta: un rincón de lectura con una butaca de cuero trenzado"></video></div>
+      </div>
     </div>
     <div class="ficha">
       <div class="izq" data-sube>
@@ -410,6 +423,9 @@ ul{padding:0;list-style:none}
     f.addEventListener('mouseenter', ver); f.addEventListener('focus', ver);
   });
 
+  // Vídeos: se reproducen solo mientras están a la vista
+  if ('IntersectionObserver' in window) { var ojo = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) e.target.play().catch(function(){}); else e.target.pause(); }); }, { threshold: .35 }); document.querySelectorAll('video').forEach(function(v){ ojo.observe(v); }); }
+
   var menos = matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('print').matches;
   if (menos || !window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
@@ -450,7 +466,7 @@ ul{padding:0;list-style:none}
   });
   ScrollTrigger.batch('[data-sube]', { start: 'top 92%', onEnter: function(els){ gsap.to(els, { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .08 }); } });
   document.querySelectorAll('.marco[data-abre]').forEach(function(m, i){
-    var img = m.querySelector('img');
+    var img = m.querySelector('img, video');
     gsap.timeline({ scrollTrigger: { trigger: m, start: 'top 94%' }, delay: (i % 4) * .08 })
       .fromTo(m, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 1.1, ease: suave }, 0)
       .to(img, { scale: 1, filter: 'blur(0px)', duration: 1.5, ease: suave, onComplete: function(){ m.classList.add('visto'); gsap.set(img, { clearProps: 'transform,filter' }); } }, 0);
