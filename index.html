@@ -66,7 +66,9 @@ ul{padding:0;list-style:none}
 .hero .pie{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);align-items:end;padding-top:22px;border-top:1px solid var(--linea)}
 .hero .pie>p{max-width:30em}
 .util{display:grid;gap:0}
-.util div{display:grid;grid-template-columns:5.5em 1fr;gap:16px;padding-block:9px;border-top:1px solid var(--linea)}
+.util div{display:grid;grid-template-columns:5.5em 1fr;gap:16px;align-items:center;padding-block:10px;border-top:1px solid var(--linea)}
+.util dd{display:flex;flex-wrap:wrap;gap:6px}
+.util dd span{padding:5px 13px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--linea);font-size:var(--t-meta);white-space:nowrap}
 .util div:first-child{border-top:0;padding-top:0}
 .util dt{color:var(--suave);font-size:var(--t-meta)}
 
@@ -89,13 +91,15 @@ ul{padding:0;list-style:none}
 .ficha dt{font-weight:500}
 .ficha dd{color:var(--suave)}
 .ficha .izq{display:flex;flex-direction:column;gap:14px;align-items:flex-start;max-width:26em}
+.boton{display:inline-block;padding:15px 26px;border-radius:999px;background:var(--texto);color:var(--fondo);text-decoration:none;font-weight:500;transition:background .3s,color .3s}
+.boton:hover{background:var(--morado-claro);color:var(--negro)}
 .sub{position:relative;text-decoration:none;font-weight:500}
 .sub::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform-origin:left;transition:transform .45s var(--ease)}
 .sub:hover::after{transform:scaleX(0);transform-origin:right}
 
 /* webs: índice con visor */
-.indice{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:start}
-.visor{position:sticky;top:96px;aspect-ratio:16/10;border-radius:clamp(10px,1.1vw,16px);overflow:hidden;background:rgba(128,128,128,.14)}
+.indice{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:stretch}
+.visor{position:relative;min-height:320px;border-radius:clamp(10px,1.1vw,16px);overflow:hidden;background:rgba(128,128,128,.14)}
 .visor img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.06);transition:opacity .5s var(--ease),transform .9s var(--ease)}
 .visor img.on{opacity:1;transform:none}
 .fila{display:grid;grid-template-columns:2.2em 1fr auto;gap:14px;align-items:baseline;padding-block:clamp(14px,1.5vw,22px);border-top:1px solid var(--linea);text-decoration:none;transition:color .3s}
@@ -106,8 +110,6 @@ ul{padding:0;list-style:none}
 .fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
 .fila:hover h3,.fila:focus-visible h3,.fila.on h3,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
 .fila:hover .meta,.fila.on .meta{color:inherit}
-.credito{margin-top:18px;max-width:34em}
-.credito .sub{color:var(--texto)}
 
 /* contacto */
 #contacto .int{min-height:100svh;display:flex;flex-direction:column;padding-top:clamp(96px,11vh,150px);padding-bottom:clamp(40px,5vw,72px)}
@@ -151,9 +153,9 @@ ul{padding:0;list-style:none}
 <nav class="nav" aria-label="Secciones">
   <a class="yo" href="#inicio">Yazmín Benítez</a>
   <ul>
-    <li><a href="#aire">Aire</a></li>
     <li><a href="#vistta">Vistta</a></li>
     <li><a href="#motion">Motion</a></li>
+    <li><a href="#aire">Aire</a></li>
     <li><a href="#webs">Webs</a></li>
   </ul>
   <a class="cta" href="#contacto">Contacto</a>
@@ -172,37 +174,9 @@ ul{padding:0;list-style:none}
     <div class="pie">
       <p data-sube>Mi formación une marketing y diseño de producto digital. Uso la IA para idear y producir más rápido, y reviso y retoco cada pieza a mano antes de publicarla.</p>
       <dl class="util" data-sube>
-        <div><dt>Diseño</dt><dd>Figma · Adobe Creative Cloud · Webflow</dd></div>
-        <div><dt>IA</dt><dd>Midjourney · NanoBanana · Runway · agentes de IA</dd></div>
-        <div><dt>Vídeo</dt><dd>CapCut</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-
-<section class="panel caso" id="aire">
-  <div class="int">
-    <div class="cab meta"><span>01</span><span>Proyecto propio · 2026</span></div>
-    <h2 data-parte>Aire</h2>
-    <div class="entrada">
-      <p class="mano nota" data-sube>Hecha en una semana</p>
-      <p class="lead" data-sube>Una app de bienestar que te guía por +90 prácticas con base científica y facilita convertirlas en hábito.</p>
-    </div>
-    <div class="galeria moviles">
-      <div class="marco" data-abre><img src="img/aire-v4-hoy.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire, con el objetivo «Menos ansiedad y estrés» y la práctica del momento sobre una foto de cielo"></div>
-      <div class="marco" data-abre><img src="img/aire-v4-ahora-musica.jpg" width="640" height="1384" alt="Pantalla Ahora de Aire, que pregunta «¿Cómo te sientes?» y ofrece estados como Ansiosa o Desbordada"></div>
-      <div class="marco" data-abre><img src="img/aire-v4-respira-anillo.jpg" width="640" height="1385" alt="Reproductor de una respiración guiada en Aire, con un anillo que marca el ritmo"></div>
-      <div class="marco" data-abre><img src="img/aire-v4-yo.jpg" width="640" height="1385" alt="Pantalla Yo de Aire, con el diario «Lo que haces bien» y el resumen de la semana"></div>
-    </div>
-    <div class="ficha">
-      <div class="izq" data-sube>
-        <p class="meta">Las prácticas proceden de los libros de la neurocientífica Ana Ibáñez. Aire es una app de uso personal y no se comercializa.</p>
-      </div>
-      <dl>
-        <div data-sube><dt>El reto</dt><dd>Existen muchas prácticas que ayudan a sentirse mejor. En un momento de ansiedad puede ser difícil recordar cuál puede ayudarte, además de que mantenerlas en el tiempo requiere constancia.</dd></div>
-        <div data-sube><dt>La solución</dt><dd>«Ahora» ofrece una práctica guiada según cómo te sientes en ese momento, principalmente cuando lo sientes urgente.<br>«Hoy» propone hasta tres al día para que repetirlas resulte sencillo, con el sentido de cultivarlas como hábitos.</dd></div>
-        <div data-sube><dt>Mi papel</dt><dd>Concepto, investigación, UX/UI, redacción y dirección de arte.</dd></div>
-        <div data-sube><dt>La IA en el proceso</dt><dd>Construí la app con agentes de IA y generé con IA los recursos visuales (imágenes del cielo). Pasé de la idea a producción en menos de una semana, con cuatro versiones probadas en uso real.</dd></div>
+        <div><dt>Diseño</dt><dd><span>Figma</span><span>Adobe Creative Cloud</span><span>Webflow</span></dd></div>
+        <div><dt>IA</dt><dd><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>agentes de IA</span></dd></div>
+        <div><dt>Vídeo</dt><dd><span>CapCut</span></dd></div>
       </dl>
     </div>
   </div>
@@ -210,19 +184,19 @@ ul{padding:0;list-style:none}
 
 <section class="panel caso" id="vistta">
   <div class="int">
-    <div class="cab meta"><span>02</span><span>Producto y marketing · kingseo. / Kocoro</span></div>
+    <div class="cab meta"><span>01</span><span>Producto y marketing · kingseo. / Kocoro</span></div>
     <h2 data-parte>Vistta</h2>
     <div class="entrada">
       <p class="mano nota" data-sube>Producto SaaS e imágenes generadas con IA</p>
       <p class="lead" data-sube>Una plataforma que convierte la foto de una estancia vacía en un render profesional para inmobiliarias y estudios de arquitectura.</p>
     </div>
     <div class="galeria dos">
-      <div class="marco" data-abre><img src="img/vistta.jpg" width="1440" height="900" alt="Portada de la web de Vistta con el titular «Transforma espacios. Vende visiones.» y un salón antes y después"></div>
       <div class="marco" data-abre><img src="img/vistta-4.jpg" width="1440" height="900" alt="Aplicación de Vistta: una habitación vacía a la izquierda y las propuestas amuebladas a la derecha"></div>
+      <div class="marco" data-abre><img src="img/vistta-comparativa.jpg" width="1342" height="823" alt="Comparativa de un salón antes y después de pasar por Vistta: vacío a la izquierda y amueblado a la derecha"></div>
     </div>
     <div class="ficha">
       <div class="izq" data-sube>
-        <a class="sub" href="https://www.visttahome.com/es" target="_blank" rel="noopener">Ver visttahome.com ↗</a>
+        <a class="boton" href="https://www.visttahome.com/es" target="_blank" rel="noopener">Ver visttahome.com ↗</a>
       </div>
       <dl>
         <div data-sube><dt>El reto</dt><dd>Una estancia vacía muestra poco de lo que puede llegar a ser. Las inmobiliarias y los estudios necesitan enseñar ese potencial a sus clientes sin amueblar cada espacio.</dd></div>
@@ -236,7 +210,7 @@ ul{padding:0;list-style:none}
 
 <section class="panel caso" id="motion">
   <div class="int">
-    <div class="cab meta"><span>03</span><span>Sistema de variantes · Musho – AI Studio</span></div>
+    <div class="cab meta"><span>02</span><span>Sistema de variantes · Musho – AI Studio</span></div>
     <h2 data-parte>Motion</h2>
     <div class="entrada">
       <p class="mano nota" data-sube>Una biblioteca de plantillas animadas para personalizar</p>
@@ -247,13 +221,41 @@ ul{padding:0;list-style:none}
     </div>
     <div class="ficha">
       <div class="izq" data-sube>
-        <a class="sub" href="https://motion.mushostudio.com/" target="_blank" rel="noopener">Probar motion.mushostudio.com ↗</a>
+        <a class="boton" href="https://motion.mushostudio.com/" target="_blank" rel="noopener">Probar motion.mushostudio.com ↗</a>
       </div>
       <dl>
         <div data-sube><dt>El reto</dt><dd>Adaptar una misma pieza a cada formato, mensaje y audiencia es un trabajo repetitivo que ocupa muchas horas del equipo creativo.</dd></div>
         <div data-sube><dt>La solución</dt><dd>Se elige una plantilla animada, se ajustan paleta, tipografía, foto y formato, y la variante queda lista para publicar.</dd></div>
         <div data-sube><dt>Mi papel</dt><dd>Dirección de diseño del catálogo de piezas, las paletas, la tipografía y la selección de foto.</dd></div>
         <div data-sube><dt>La IA en el proceso</dt><dd>La herramienta está construida con agentes de IA.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="panel caso" id="aire">
+  <div class="int">
+    <div class="cab meta"><span>03</span><span>Proyecto propio · 2026</span></div>
+    <h2 data-parte>Aire</h2>
+    <div class="entrada">
+      <p class="mano nota" data-sube>Hecha en una semana</p>
+      <p class="lead" data-sube>Una app de bienestar que te guía por +90 prácticas con base científica y facilita convertirlas en hábito.</p>
+    </div>
+    <div class="galeria moviles">
+      <div class="marco" data-abre><img src="img/aire-v4-bienvenida.jpg" width="640" height="1385" alt="Pantalla de bienvenida de Aire, con el nombre sobre un cielo al atardecer y la pregunta «¿Qué quieres mejorar?»"></div>
+      <div class="marco" data-abre><img src="img/aire-v4-hoy.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire, con el objetivo «Menos ansiedad y estrés» y la práctica del momento sobre una foto de cielo"></div>
+      <div class="marco" data-abre><img src="img/aire-v4-ahora-musica.jpg" width="640" height="1384" alt="Pantalla Ahora de Aire, que pregunta «¿Cómo te sientes?» y ofrece estados como Ansiosa o Desbordada"></div>
+      <div class="marco" data-abre><img src="img/aire-v4-respira-anillo.jpg" width="640" height="1385" alt="Reproductor de una respiración guiada en Aire, con un anillo que marca el ritmo"></div>
+    </div>
+    <div class="ficha">
+      <div class="izq" data-sube>
+        <p class="meta">Las prácticas proceden de los libros de la neurocientífica Ana Ibáñez. Aire es una app de uso personal y no se comercializa.</p>
+      </div>
+      <dl>
+        <div data-sube><dt>El reto</dt><dd>Existen muchas prácticas que ayudan a sentirse mejor. En un momento de ansiedad puede ser difícil recordar cuál puede ayudarte, además de que mantenerlas en el tiempo requiere constancia.</dd></div>
+        <div data-sube><dt>La solución</dt><dd>«Ahora» ofrece una práctica guiada según cómo te sientes en ese momento, principalmente cuando lo sientes urgente.<br>«Hoy» propone hasta tres al día para que repetirlas resulte sencillo, con el sentido de cultivarlas como hábitos.</dd></div>
+        <div data-sube><dt>Mi papel</dt><dd>Concepto, investigación, UX/UI, redacción y dirección de arte.</dd></div>
+        <div data-sube><dt>La IA en el proceso</dt><dd>Construí la app con agentes de IA y generé con IA los recursos visuales (imágenes del cielo). Pasé de la idea a producción en menos de una semana, con cuatro versiones probadas en uso real.</dd></div>
       </dl>
     </div>
   </div>
@@ -286,7 +288,6 @@ ul{padding:0;list-style:none}
         <a class="fila" href="https://www.inspirationexcursions.com/" target="_blank" rel="noopener"><span class="meta n">06</span><h3>Inspiration Excursions</h3><span class="meta">Experiencias para empresas ↗</span><img class="mini" src="img/inspiration.jpg" alt="Web de Inspiration Excursions" loading="lazy"></a>
         <a class="fila" href="https://www.getmoreinputs.com/" target="_blank" rel="noopener"><span class="meta n">07</span><h3>yuxta</h3><span class="meta">Consultora de creatividad ↗</span><img class="mini" src="img/inputs.jpg" alt="Web de yuxta" loading="lazy"></a>
         <a class="fila" href="https://www.norgestion.com/" target="_blank" rel="noopener"><span class="meta n">08</span><h3>NORGESTION</h3><span class="meta">Actualización web y CRM · en Kocoro ↗</span><img class="mini" src="img/norgestion.jpg" alt="Web de NORGESTION" loading="lazy"></a>
-        <p class="meta credito" data-sube>Synthesis y NORGESTION son proyectos de <a class="sub" href="https://www.kocoro.co/" target="_blank" rel="noopener">Kocoro ↗</a>, en los que trabajé como parte de su equipo.</p>
       </div>
     </div>
   </div>
