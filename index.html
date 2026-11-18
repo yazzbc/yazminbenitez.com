@@ -107,11 +107,11 @@ ul{padding:0;list-style:none}
 .moviles .marco{border-radius:clamp(14px,2.6vw,40px)}
 .moviles .marco:nth-child(even){margin-top:clamp(24px,6vw,96px)}
 .ficha{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px)}
-.ficha dl{grid-column:2}
+.ficha dl{grid-column:1;grid-row:1}
 .ficha dl div{display:grid;grid-template-columns:9em 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--linea)}
 .ficha dt{font-weight:500}
 .ficha dd{color:var(--suave)}
-.ficha .izq{display:flex;flex-direction:column;gap:14px;align-items:flex-start;max-width:26em}
+.ficha .izq{grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:14px;align-items:flex-start;max-width:26em}
 .boton{display:inline-block;padding:15px 26px;border-radius:999px;background:var(--texto);color:var(--fondo);text-decoration:none;font-weight:500;transition:background .3s,color .3s}
 .boton:hover{background:var(--morado-claro);color:var(--negro)}
 .sub{position:relative;text-decoration:none;font-weight:500}
@@ -155,7 +155,8 @@ ul{padding:0;list-style:none}
   .nav .cta{padding:10px 16px}
   .hero .pie,.entrada,.ficha,.indice,.hero .arriba{grid-template-columns:1fr}
   .retrato{width:46%;order:-1}
-  .entrada .lead,.ficha dl{grid-column:1}
+  .entrada .lead,.ficha dl,.ficha .izq{grid-column:1}
+  .ficha dl,.ficha .izq{grid-row:auto}
   .entrada .nota{grid-row:auto}
   .dos{grid-template-columns:1fr}
   .moviles{grid-template-columns:1fr 1fr}
@@ -188,15 +189,15 @@ ul{padding:0;list-style:none}
     <div class="arriba">
      <div>
       <p class="mano saludo" data-sube>Hola, soy Yaz</p>
-      <h1 data-parte>Soy diseñadora creativa digital. Diseño marcas, webs y contenido para redes. La IA me acompaña en cada fase del proceso.</h1>
+      <h1 data-parte>Soy diseñadora creativa digital. Diseño marcas, webs y contenido para redes.</h1>
      </div>
      <div class="marco retrato" data-abre><img src="img/yaz.jpg" width="720" height="960" alt="Retrato de Yazmín Benítez"></div>
     </div>
     <div class="pie">
-      <p data-sube>Mi formación une marketing y diseño de producto digital. Uso la IA para idear y producir más rápido, y reviso y retoco cada pieza a mano antes de publicarla.</p>
+      <p data-sube>Mi formación une marketing y diseño de producto digital.<br>Uso la IA para idear y producir más rápido, y reviso y retoco cada pieza a mano antes de publicarla.</p>
       <dl class="util" data-sube>
         <div><dt>Diseño</dt><dd><span>Figma</span><span>Adobe Creative Cloud</span><span>Webflow</span></dd></div>
-        <div><dt>IA</dt><dd><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>agentes de IA</span></dd></div>
+        <div><dt>IA</dt><dd><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>Agentes de IA</span></dd></div>
         <div><dt>Vídeo</dt><dd><span>CapCut</span></dd></div>
       </dl>
     </div>
