@@ -73,9 +73,11 @@ ul{padding:0;list-style:none}
 .burger{display:none}
 .nav .yo{justify-self:start;padding:6px 0;text-decoration:none;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
 .nav ul{display:flex;gap:4px;padding:5px;border-radius:var(--radio);background:rgba(247,247,245,.72);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.07),0 10px 28px -14px rgba(17,17,17,.3);color:var(--negro)}
-.nav li a{display:block;padding:9px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:background .3s,color .3s}
+.nav ul{position:relative}
+.nav .marca{position:absolute;top:5px;bottom:5px;left:0;width:0;border-radius:6px;background:var(--negro);opacity:0;pointer-events:none;transition:transform .6s var(--ease),width .6s var(--ease),opacity .3s}
+.nav li a{position:relative;z-index:1;display:block;padding:9px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:color .35s}
 .nav li a:hover{color:var(--morado)}
-.nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{background:var(--negro);color:#fff}
+.nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{color:#fff}
 .nav .cta{justify-self:end;padding:11px 22px;border-radius:var(--radio);background:var(--negro);color:var(--blanco);text-decoration:none;white-space:nowrap;transition:background .3s,color .3s}
 .nav[data-tono="oscuro"] .cta{background:var(--blanco);color:var(--negro)}
 .nav .cta{--relleno:var(--morado)}
@@ -91,7 +93,7 @@ ul{padding:0;list-style:none}
 .hero .pie{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);align-items:end;padding-top:22px;border-top:1px solid var(--linea)}
 .hero .pie>p{max-width:30em}
 .util{display:grid;gap:0}
-.util div{display:grid;grid-template-columns:8em 1fr;gap:16px;align-items:center;padding-block:10px;border-top:1px solid var(--linea)}
+.util div{display:grid;grid-template-columns:10.5em 1fr;gap:16px;align-items:center;padding-block:10px;border-top:1px solid var(--linea)}
 .util dd{display:flex;flex-wrap:wrap;gap:6px}
 .util dd span{padding:5px 12px;border-radius:6px;box-shadow:inset 0 0 0 1px var(--linea);font-size:var(--t-meta);white-space:nowrap}
 .util div:first-child{border-top:0;padding-top:0}
@@ -106,7 +108,7 @@ ul{padding:0;list-style:none}
 .galeria{margin-top:clamp(40px,6vw,96px)}
 .marco{overflow:hidden;border-radius:clamp(6px,.6vw,10px);background:rgba(128,128,128,.14);box-shadow:0 0 0 1px var(--linea),0 32px 64px -34px rgba(0,0,0,.5)}
 .marco img,.marco video{display:block;width:100%;height:auto}
-.campana{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:end}
+.campana{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:start}
 .campana-txt{display:flex;flex-direction:column;gap:12px;max-width:24em;color:var(--suave)}
 .campana-videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
 .dos{display:grid;grid-template-columns:7fr 5fr;gap:clamp(12px,1.6vw,24px);align-items:end}
@@ -184,7 +186,8 @@ ul{padding:0;list-style:none}
   .nav.abierto .menu{opacity:1;visibility:visible}
   .nav ul{flex-direction:column;gap:0;padding:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;color:inherit}
   .nav li a{padding:8px 0;border-radius:0;font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
-  .nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{background:none;color:var(--morado-claro)}
+  .nav .marca{display:none}
+  .nav li a[aria-current="true"],.nav li a[aria-current="true"]:hover{color:var(--morado-claro)}
   .nav .menu .cta{justify-self:auto;padding:14px 24px;font-size:17px;background:var(--blanco);color:var(--negro)}
   .hero .pie,.entrada,.ficha,.indice,.hero .arriba,.campana{grid-template-columns:1fr}
   .retrato{width:46%;order:-1}
@@ -215,6 +218,7 @@ ul{padding:0;list-style:none}
   <a class="yo" href="#inicio">Yazmín Benítez</a>
   <div class="menu" id="menu">
     <ul>
+      <li class="marca" aria-hidden="true"></li>
       <li><a href="#vistta">Vistta</a></li>
       <li><a href="#motion">Motion</a></li>
       <li><a href="#aire">Aire</a></li>
@@ -239,8 +243,7 @@ ul{padding:0;list-style:none}
       <p data-sube>Mi formación une marketing y diseño de producto digital.<br>Uso la IA para idear y producir más rápido, y reviso y retoco cada pieza a mano antes de publicarla.</p>
       <dl class="util" data-sube>
         <div><dt>Diseño</dt><dd><span>Figma</span><span>Adobe Creative Cloud</span><span>Webflow</span></dd></div>
-        <div><dt>IA</dt><dd><span>Agentes de IA</span><span>Claude Code</span><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>ElevenLabs</span></dd></div>
-        <div><dt>Automatización</dt><dd><span>n8n</span><span>Make</span></dd></div>
+        <div><dt>IA &amp; Automatización</dt><dd><span>Agentes de IA</span><span>Claude Code</span><span>Midjourney</span><span>NanoBanana</span><span>Runway</span><span>ElevenLabs</span><span>n8n</span><span>Make</span></dd></div>
         <div><dt>Vídeo</dt><dd><span>CapCut</span></dd></div>
       </dl>
     </div>
@@ -390,8 +393,12 @@ ul{padding:0;list-style:none}
   // Navegación: marca la sección en la que estás
   var nav = document.querySelector('.nav'), enlaces = Array.from(nav.querySelectorAll('li a, .cta'));
   var oscuros = { vistta: 1, contacto: 1 };
+  var marca = nav.querySelector('.marca');
   function marcar(id){
-    enlaces.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'true' : 'false'); });
+    var act = null;
+    enlaces.forEach(function(a){ var si = a.getAttribute('href') === '#' + id; a.setAttribute('aria-current', si ? 'true' : 'false'); if (si && a.closest('li')) act = a; });
+    if (act) { marca.style.width = act.offsetWidth + 'px'; marca.style.transform = 'translateX(' + act.offsetLeft + 'px)'; marca.style.opacity = 1; }
+    else marca.style.opacity = 0;
   }
   var burger = nav.querySelector('.burger');
   function menu(ab){
