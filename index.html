@@ -111,6 +111,10 @@ ul{padding:0;list-style:none}
 .campana{display:grid;grid-template-columns:1fr 1fr;gap:var(--lado);margin-top:clamp(40px,6vw,96px);align-items:start}
 .campana-txt{display:flex;flex-direction:column;gap:12px;max-width:24em;color:var(--suave)}
 .campana-videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.campana-posts{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.campana-posts img{aspect-ratio:4/5;object-fit:cover}
+.campana + .campana{margin-top:clamp(32px,4.5vw,72px)}
+.campana-txt .sub{align-self:flex-start;color:var(--texto)}
 .dos{display:grid;grid-template-columns:7fr 5fr;gap:clamp(12px,1.6vw,24px);align-items:end}
 .moviles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,32px);align-items:start}
 .moviles .marco{border-radius:clamp(10px,1.5vw,20px)}
@@ -270,6 +274,19 @@ ul{padding:0;list-style:none}
       <div class="campana-videos">
         <div class="marco" data-abre><video src="img/vistta-ad-1.mp4" poster="img/vistta-ad-1.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Anuncio de Vistta: un salón en penumbra con vistas a Florencia"></video></div>
         <div class="marco" data-abre><video src="img/vistta-ad-2.mp4" poster="img/vistta-ad-2.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="Anuncio de Vistta: un rincón de lectura con una butaca de cuero trenzado"></video></div>
+      </div>
+    </div>
+    <div class="campana">
+      <div class="campana-txt" data-sube>
+        <p class="mano">Publicaciones en Instagram</p>
+        <p>Algunas de las publicaciones de la cuenta de Vistta, con imágenes generadas con IA.</p>
+        <a class="sub" href="https://www.instagram.com/vistta_app/" target="_blank" rel="noopener">Ver @vistta_app<i class="fl" aria-hidden="true"></i></a>
+      </div>
+      <div class="campana-posts">
+        <div class="marco" data-abre><img src="img/vistta-post-1.jpg" width="760" height="950" loading="lazy" alt="Publicación de Vistta: un salón abierto al atardecer con sofá claro y muebles de madera"></div>
+        <div class="marco" data-abre><img src="img/vistta-post-2.jpg" width="760" height="950" loading="lazy" alt="Publicación de Vistta: una bañera de piedra ante un ventanal en arco con plantas"></div>
+        <div class="marco" data-abre><img src="img/vistta-post-3.jpg" width="760" height="950" loading="lazy" alt="Publicación de Vistta: una butaca de bouclé delante de un mural de colores"></div>
+        <div class="marco" data-abre><img src="img/vistta-post-4.jpg" width="760" height="950" loading="lazy" alt="Publicación de Vistta con la frase «La estética no es un presupuesto, es un criterio»"></div>
       </div>
     </div>
     <div class="ficha">
