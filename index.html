@@ -35,6 +35,7 @@ ul{padding:0;list-style:none}
 .panel .int{padding:clamp(72px,9vw,150px) var(--lado) clamp(72px,9vw,150px);transform-origin:50% calc(100% - 50vh);will-change:transform}
 .panel::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--velo,0);pointer-events:none}
 .apila .panel{position:sticky}
+.apila .caso + .panel{margin-top:45vh}
 #aire{--fondo:#DCD8EF;--suave:#57526E;--linea:rgba(17,17,17,.16)}
 #vistta{--fondo:#1D1D21;--texto:#F3F3F3;--suave:#A3A39D;--linea:rgba(255,255,255,.18);--acento:var(--morado-claro)}
 #motion{--fondo:var(--morado);--texto:#FFFFFF;--suave:rgba(255,255,255,.86);--linea:rgba(255,255,255,.3);--acento:#FFFFFF}
@@ -103,6 +104,8 @@ ul{padding:0;list-style:none}
 .fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
 .fila:hover h3,.fila:focus-visible h3,.fila.on h3,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
 .fila:hover .meta,.fila.on .meta{color:inherit}
+.credito{margin-top:18px;max-width:34em}
+.credito .sub{color:var(--texto)}
 
 /* contacto */
 #contacto .int{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding-top:clamp(96px,11vh,150px);padding-bottom:28px}
@@ -137,7 +140,7 @@ ul{padding:0;list-style:none}
   .fila .mini{display:block;grid-column:1/-1;aspect-ratio:16/9;width:100%;object-fit:cover;object-position:top;border-radius:10px}
   .fila:hover h3,.fila.on h3{transform:none}
 }
-@media print{.nav{display:none}.panel{break-inside:avoid-page;border-radius:0}.hero .int{min-height:0}}
+@media print{.nav{display:none}.apila .caso + .panel{margin-top:0}.panel{break-inside:avoid-page;border-radius:0}.hero .int{min-height:0}}
 </style>
 </head>
 <body>
@@ -187,7 +190,7 @@ ul{padding:0;list-style:none}
       <div class="marco" data-abre><img src="img/aire-v4-hoy.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire, con el objetivo «Menos ansiedad y estrés» y la práctica del momento sobre una foto de cielo"></div>
       <div class="marco" data-abre><img src="img/aire-v4-ahora-musica.jpg" width="640" height="1384" alt="Pantalla Ahora de Aire, que pregunta «¿Cómo te sientes?» y ofrece estados como Ansiosa o Desbordada"></div>
       <div class="marco" data-abre><img src="img/aire-v4-respira-anillo.jpg" width="640" height="1385" alt="Reproductor de una respiración guiada en Aire, con un anillo que marca el ritmo"></div>
-      <div class="marco" data-abre><img src="img/aire-v4-hoy-noche.jpg" width="640" height="1385" alt="Pantalla Hoy de Aire en su versión de noche"></div>
+      <div class="marco" data-abre><img src="img/aire-v4-yo.jpg" width="640" height="1385" alt="Pantalla Yo de Aire, con el diario «Lo que haces bien» y el resumen de la semana"></div>
     </div>
     <div class="ficha">
       <div class="izq" data-sube>
@@ -258,7 +261,7 @@ ul{padding:0;list-style:none}
     <div class="cab meta"><span>04</span><span>Diseño y desarrollo web</span></div>
     <h2 data-parte>Webs</h2>
     <div class="entrada">
-      <p class="lead" data-sube>Ocho webs diseñadas y desarrolladas para marcas de España, México y Estados Unidos.</p>
+      <p class="lead" data-sube>Webs diseñadas y desarrolladas para marcas de España, México y Estados Unidos.</p>
     </div>
     <div class="indice">
       <div class="visor" aria-hidden="true">
@@ -275,11 +278,12 @@ ul{padding:0;list-style:none}
         <a class="fila on" href="https://www.clinica360vision.com/" target="_blank" rel="noopener"><span class="meta n">01</span><h3>360 Vision</h3><span class="meta">Clínica oftalmológica ↗</span><img class="mini" src="img/clinica.jpg" alt="Web de 360 Vision" loading="lazy"></a>
         <a class="fila" href="https://www.soulsoothingmethod.com/" target="_blank" rel="noopener"><span class="meta n">02</span><h3>Soul Soothing Method</h3><span class="meta">Bienestar familiar ↗</span><img class="mini" src="img/soul.jpg" alt="Web de Soul Soothing Method" loading="lazy"></a>
         <a class="fila" href="https://ivonnegama.com/" target="_blank" rel="noopener"><span class="meta n">03</span><h3>Ivonne Gama</h3><span class="meta">Branding y web ↗</span><img class="mini" src="img/ivonne.jpg" alt="Web de Ivonne Gama" loading="lazy"></a>
-        <a class="fila" href="https://www.synthesis-coach.com/" target="_blank" rel="noopener"><span class="meta n">04</span><h3>Synthesis</h3><span class="meta">Coaching creativo ↗</span><img class="mini" src="img/synthesis.jpg" alt="Web de Synthesis" loading="lazy"></a>
+        <a class="fila" href="https://www.synthesis-coach.com/" target="_blank" rel="noopener"><span class="meta n">04</span><h3>Synthesis</h3><span class="meta">Coaching creativo · en Kocoro ↗</span><img class="mini" src="img/synthesis.jpg" alt="Web de Synthesis" loading="lazy"></a>
         <a class="fila" href="https://www.simbiotica.online/" target="_blank" rel="noopener"><span class="meta n">05</span><h3>Simbiótica</h3><span class="meta">Promotora inmobiliaria ↗</span><img class="mini" src="img/simbiotica.jpg" alt="Web de Simbiótica" loading="lazy"></a>
         <a class="fila" href="https://www.inspirationexcursions.com/" target="_blank" rel="noopener"><span class="meta n">06</span><h3>Inspiration Excursions</h3><span class="meta">Experiencias para empresas ↗</span><img class="mini" src="img/inspiration.jpg" alt="Web de Inspiration Excursions" loading="lazy"></a>
         <a class="fila" href="https://www.getmoreinputs.com/" target="_blank" rel="noopener"><span class="meta n">07</span><h3>yuxta</h3><span class="meta">Consultora de creatividad ↗</span><img class="mini" src="img/inputs.jpg" alt="Web de yuxta" loading="lazy"></a>
-        <a class="fila" href="https://www.norgestion.com/" target="_blank" rel="noopener"><span class="meta n">08</span><h3>NORGESTION</h3><span class="meta">Actualización web y CRM ↗</span><img class="mini" src="img/norgestion.jpg" alt="Web de NORGESTION" loading="lazy"></a>
+        <a class="fila" href="https://www.norgestion.com/" target="_blank" rel="noopener"><span class="meta n">08</span><h3>NORGESTION</h3><span class="meta">Actualización web y CRM · en Kocoro ↗</span><img class="mini" src="img/norgestion.jpg" alt="Web de NORGESTION" loading="lazy"></a>
+        <p class="meta credito" data-sube>Synthesis y NORGESTION son proyectos de <a class="sub" href="https://www.kocoro.co/" target="_blank" rel="noopener">Kocoro ↗</a>, en los que trabajé como parte de su equipo.</p>
       </div>
     </div>
   </div>
@@ -362,8 +366,8 @@ ul{padding:0;list-style:none}
   pegar(); addEventListener('resize', pegar);
   paneles.forEach(function(p, i){
     var sig = paneles[i + 1]; if (!sig) return;
-    gsap.to(p.querySelector('.int'), { scale: .93, ease: 'none', scrollTrigger: { trigger: sig, start: 'top bottom', end: 'top top', scrub: true } });
-    gsap.to(p, { '--velo': .45, ease: 'none', scrollTrigger: { trigger: sig, start: 'top bottom', end: 'top top', scrub: true } });
+    gsap.to(p.querySelector('.int'), { scale: .95, ease: 'none', scrollTrigger: { trigger: sig, start: 'top 70%', end: 'top top', scrub: true } });
+    gsap.to(p, { '--velo': .45, ease: 'none', scrollTrigger: { trigger: sig, start: 'top 70%', end: 'top top', scrub: true } });
   });
 
   var suave = 'expo.out';
