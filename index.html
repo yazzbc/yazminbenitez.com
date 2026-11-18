@@ -57,9 +57,9 @@ ul{padding:0;list-style:none}
 .panel::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--velo,0);pointer-events:none}
 .apila .panel{position:sticky}
 .apila .caso + .panel{margin-top:45vh}
-#aire{--fondo:#DCD8EF;--suave:#57526E;--linea:rgba(17,17,17,.16)}
+#aire{--fondo:#F1EADF;--suave:#6B6459;--linea:rgba(17,17,17,.16)}
 #vistta{--fondo:#1D1D21;--texto:#F3F3F3;--suave:#A3A39D;--linea:rgba(255,255,255,.18);--acento:var(--morado-claro)}
-#motion{--fondo:var(--morado);--texto:#FFFFFF;--suave:rgba(255,255,255,.86);--linea:rgba(255,255,255,.3);--acento:#FFFFFF}
+#motion{--fondo:#DCD8EF;--suave:#57526E;--linea:rgba(17,17,17,.16)}
 #contacto{--fondo:#111111;--texto:#F3F3F3;--suave:#A3A39D;--linea:rgba(255,255,255,.18);--acento:var(--morado-claro)}
 
 .meta{font-size:var(--t-meta);color:var(--suave)}
@@ -336,7 +336,7 @@ ul{padding:0;list-style:none}
 
   // Navegación: marca la sección en la que estás
   var nav = document.querySelector('.nav'), enlaces = Array.from(nav.querySelectorAll('li a, .cta'));
-  var oscuros = { vistta: 1, motion: 1, contacto: 1 };
+  var oscuros = { vistta: 1, contacto: 1 };
   function marcar(id){
     enlaces.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'true' : 'false'); });
   }
