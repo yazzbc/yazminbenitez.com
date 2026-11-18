@@ -92,11 +92,13 @@ ul{padding:0;list-style:none}
 .visor{position:sticky;top:96px;aspect-ratio:16/10;border-radius:clamp(10px,1.1vw,16px);overflow:hidden;background:rgba(128,128,128,.14)}
 .visor img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.06);transition:opacity .5s var(--ease),transform .9s var(--ease)}
 .visor img.on{opacity:1;transform:none}
-.fila{display:grid;grid-template-columns:2.2em 1fr auto;gap:14px;align-items:baseline;padding-block:clamp(14px,1.5vw,22px);border-top:1px solid var(--linea);text-decoration:none;transition:padding .45s var(--ease),color .3s}
+.fila{display:grid;grid-template-columns:2.2em 1fr auto;gap:14px;align-items:baseline;padding-block:clamp(14px,1.5vw,22px);border-top:1px solid var(--linea);text-decoration:none;transition:color .3s}
+.fila h3,.fila .n{transition:transform .45s var(--ease)}
 .lista .fila:last-child{border-bottom:1px solid var(--linea)}
 .fila h3{font-size:clamp(20px,2vw,30px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
 .fila .mini{display:none}
-.fila:hover,.fila:focus-visible,.fila.on{padding-left:14px;color:var(--morado)}
+.fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
+.fila:hover h3,.fila:focus-visible h3,.fila.on h3,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
 .fila:hover .meta,.fila.on .meta{color:inherit}
 
 /* contacto */
@@ -127,7 +129,7 @@ ul{padding:0;list-style:none}
   .fila{grid-template-columns:1fr auto;row-gap:12px}
   .fila .n{display:none}
   .fila .mini{display:block;grid-column:1/-1;aspect-ratio:16/9;width:100%;object-fit:cover;object-position:top;border-radius:10px}
-  .fila:hover,.fila.on{padding-left:0}
+  .fila:hover h3,.fila.on h3{transform:none}
 }
 @media print{.nav{display:none}.panel{break-inside:avoid-page;border-radius:0}.hero .int{min-height:0}}
 </style>
