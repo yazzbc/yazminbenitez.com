@@ -132,14 +132,15 @@ ul{padding:0;list-style:none}
 .ficha dd{color:var(--suave)}
 .ficha .izq{grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
 .ficha .izq p{max-width:26em}
-.boton{display:inline-block;padding:15px 26px;border-radius:var(--radio);background:var(--texto);color:var(--fondo);text-decoration:none;font-weight:500;transition:color .35s,transform .2s}
-/* hover de botones: el color sube desde abajo como una ola y la flecha sale y vuelve a entrar */
+.boton{--sobre:#fff;--relleno:var(--negro);--sobre-hover:#fff;display:inline-block;padding:15px 26px;border-radius:var(--radio);background:var(--acento);color:var(--sobre);text-decoration:none;font-weight:500;transition:color .35s,transform .2s}
+#vistta .boton{--sobre:var(--negro);--relleno:#F3F3F3;--sobre-hover:var(--negro)}
+/* hover de botones: el color entra de izquierda a derecha (y sale por la derecha) y la flecha sale y vuelve a entrar */
 .boton,.nav .cta{position:relative;overflow:hidden;isolation:isolate}
-.boton::before,.nav .cta::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--relleno,var(--morado-claro));border-radius:60% 60% 0 0/100% 100% 0 0;transform:translateY(102%);transition:transform .6s var(--ease),border-radius .6s var(--ease)}
+.boton::before,.nav .cta::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--relleno,var(--morado-claro));transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
 .boton .fl{transition:transform .5s var(--ease)}
 @media (hover:hover){
-  .boton:hover::before,.nav .cta:hover::before{transform:none;border-radius:0}
-  .boton:hover{color:var(--negro)}
+  .boton:hover::before,.nav .cta:hover::before{transform:none;transform-origin:left}
+  .boton:hover{color:var(--sobre-hover)}
   .boton:hover .fl{animation:flecha .5s var(--ease)}
 }
 .boton:active,.nav .cta:active{transform:scale(.97)}
@@ -163,6 +164,16 @@ ul{padding:0;list-style:none}
 .fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
 .fila:hover .quien,.fila:focus-visible .quien,.fila.on .quien,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
 .fila:hover .meta,.fila.on .meta{color:inherit}
+/* escritorio: un recuadro morado entra de izquierda a derecha y rellena la fila */
+@media (hover:hover) and (min-width:821px){
+  .fila{position:relative;isolation:isolate}
+  .fila .hice{transition:transform .45s var(--ease)}
+  .fila::before{content:"";position:absolute;inset:-1px 0 0;z-index:-1;background:var(--morado);transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
+  .fila:hover::before,.fila:focus-visible::before{transform:none;transform-origin:left}
+  .fila:hover,.fila:focus-visible{color:#fff}
+  .fila:hover .quien,.fila:focus-visible .quien,.fila:hover .n,.fila:focus-visible .n{transform:translateX(16px)}
+  .fila:hover .hice,.fila:focus-visible .hice{transform:translateX(-16px)}
+}
 
 /* contacto */
 #contacto .int{min-height:100svh;min-height:100lvh;display:flex;flex-direction:column;padding-top:clamp(96px,11vh,150px);padding-bottom:clamp(40px,5vw,72px)}
