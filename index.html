@@ -423,7 +423,7 @@ ul{padding:0;list-style:none}
       <a class="correo" href="mailto:yazminbenitezc@gmail.com" data-sube>yazminbenitezc@gmail.com</a>
       <p class="enlaces" data-sube><a href="https://www.linkedin.com/in/yazminbenitezc" target="_blank" rel="noopener">LinkedIn<i class="fl" aria-hidden="true"></i></a><a href="cv-yazmin-benitez.pdf" target="_blank" rel="noopener">CV en PDF<i class="fl" aria-hidden="true"></i></a></p>
     </div>
-    <p class="lugar" data-sube><i class="pin" aria-hidden="true"></i>Valencia, España</p>
+    <p class="lugar"><i class="pin" aria-hidden="true"></i>Valencia, España</p>
   </div>
 </section>
 </main>
@@ -553,6 +553,8 @@ ul{padding:0;list-style:none}
       .fromTo(m, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 1.1, ease: suave }, 0)
       .to(img, { scale: 1, filter: 'blur(0px)', duration: 1.5, ease: suave, onComplete: function(){ m.classList.add('visto'); gsap.set(img, { clearProps: 'transform,filter' }); } }, 0);
   });
+  // la ubicación va pegada al borde de abajo y nunca cruza la línea que dispara [data-sube]: entra cuando entran los enlaces
+  gsap.from('.lugar', { opacity: 0, y: 20, duration: .9, ease: 'power3.out', delay: .2, scrollTrigger: { trigger: '#contacto .enlaces', start: 'top 92%' } });
   // Contacto: al llegar arriba, sus esquinas se rellenan hasta cubrir la pantalla
   var fin = document.getElementById('contacto'), r0 = parseFloat(getComputedStyle(fin).borderTopLeftRadius) || 0;
   gsap.fromTo(fin, { '--r': r0 + 'px' }, { '--r': '0px', duration: .7, ease: 'back.out(2.2)', scrollTrigger: { trigger: fin, start: 'top 6px', toggleActions: 'play none none reverse' } });
