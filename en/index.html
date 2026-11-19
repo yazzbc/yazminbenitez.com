@@ -205,7 +205,8 @@ ul{padding:0;list-style:none}
 
 @media (max-width:820px){
   .nav{grid-template-columns:1fr auto;padding:10px var(--lado)}
-  .nav::before{content:"";position:absolute;inset:0;background:rgba(247,247,245,.8);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);transition:background .35s}
+  .nav::before{content:"";position:absolute;inset:0;background:rgba(247,247,245,.8);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);transition:background .35s,opacity .45s}
+  .nav.arriba::before{opacity:0}
   .nav[data-tono="oscuro"]::before{background:rgba(22,22,25,.78)}
   .nav.abierto,.nav.abierto[data-tono="oscuro"]{color:#F3F3F3}
   .nav .yo,.burger{position:relative;z-index:2}
@@ -249,7 +250,7 @@ ul{padding:0;list-style:none}
 </head>
 <body>
 
-<nav class="nav" aria-label="Sections">
+<nav class="nav arriba" aria-label="Sections">
   <a class="yo" href="#inicio">Yazmín Benítez</a>
   <div class="menu" id="menu">
     <ul>
@@ -449,6 +450,9 @@ ul{padding:0;list-style:none}
     if (act) { marca.style.width = act.offsetWidth + 'px'; marca.style.transform = 'translateX(' + act.offsetLeft + 'px)'; marca.style.opacity = 1; }
     else marca.style.opacity = 0;
   }
+  // en móvil la barra no tiene fondo mientras se está arriba del todo: así el degradado de la portada se ve entero
+  function arriba(){ nav.classList.toggle('arriba', scrollY < 12); }
+  addEventListener('scroll', arriba, { passive: true }); arriba();
   var burger = nav.querySelector('.burger');
   function menu(ab){
     nav.classList.toggle('abierto', ab); burger.setAttribute('aria-expanded', ab); burger.setAttribute('aria-label', ab ? 'Close menu' : 'Open menu');
