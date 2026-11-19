@@ -90,6 +90,7 @@ ul{padding:0;list-style:none}
 @media (hover:hover){.nav .cta:hover,.nav[data-tono="oscuro"] .cta:hover{color:#fff}}
 
 /* portada */
+.hero{background:radial-gradient(90% 55% at 50% 108%,rgba(169,158,240,.5),rgba(169,158,240,0) 70%),var(--fondo)}
 .hero .int{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding-top:clamp(110px,13vh,170px);padding-bottom:clamp(24px,3vw,44px)}
 .hero h1{font-size:var(--t-decl);font-weight:500;line-height:1.08;letter-spacing:-.035em;max-width:23ch}
 .hero .saludo{margin-bottom:14px}
@@ -164,15 +165,16 @@ ul{padding:0;list-style:none}
 .fila:hover,.fila:focus-visible,.fila.on{color:var(--morado)}
 .fila:hover .quien,.fila:focus-visible .quien,.fila.on .quien,.fila:hover .n,.fila:focus-visible .n,.fila.on .n{transform:translateX(12px)}
 .fila:hover .meta,.fila.on .meta{color:inherit}
-/* escritorio: un recuadro morado entra de izquierda a derecha y rellena la fila */
+/* escritorio: UN recuadro lila entra de izquierda a derecha y luego viaja de fila en fila (lo mueve el script) */
+.lista .caja{display:none}
 @media (hover:hover) and (min-width:821px){
-  .fila{position:relative;isolation:isolate}
+  .lista{position:relative;isolation:isolate}
+  .lista .caja{display:block;position:absolute;left:0;right:0;top:0;height:var(--h,0px);z-index:-1;background:var(--morado-claro);translate:0 var(--y,0px);scale:0 1;transform-origin:right;transition:translate .5s var(--ease),height .5s var(--ease),scale .55s var(--ease)}
+  .lista.dentro .caja{scale:1 1;transform-origin:left}
   .fila .hice{transition:transform .45s var(--ease)}
-  .fila::before{content:"";position:absolute;inset:-1px 0 0;z-index:-1;background:var(--morado);transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
-  .fila:hover::before,.fila:focus-visible::before{transform:none;transform-origin:left}
-  .fila:hover,.fila:focus-visible{color:#fff}
-  .fila:hover .quien,.fila:focus-visible .quien,.fila:hover .n,.fila:focus-visible .n{transform:translateX(16px)}
-  .fila:hover .hice,.fila:focus-visible .hice{transform:translateX(-16px)}
+  .fila.on .quien,.fila.on .n{transform:translateX(16px)}
+  .lista.dentro .fila.on{color:var(--negro)}
+  .lista.dentro .fila.on .hice{transform:translateX(-16px)}
 }
 
 /* contacto */
@@ -463,8 +465,19 @@ ul{padding:0;list-style:none}
   var filas = Array.from(document.querySelectorAll('.fila')), fotos = Array.from(document.querySelectorAll('.visor img'));
   filas.forEach(function(f, i){
     function ver(){ filas.forEach(function(x){ x.classList.remove('on'); }); fotos.forEach(function(x){ x.classList.remove('on'); }); f.classList.add('on'); if (fotos[i]) fotos[i].classList.add('on'); }
-    f.addEventListener('mouseenter', ver); f.addEventListener('focus', ver);
+    f.addEventListener('mouseenter', function(){ ver(); mover(f); }); f.addEventListener('focus', function(){ ver(); mover(f); });
   });
+  // el recuadro de las filas: entra en la fila que tocas y después viaja con el ratón
+  var lista = document.querySelector('.lista'), caja = document.createElement('span');
+  caja.className = 'caja'; caja.setAttribute('aria-hidden', 'true'); lista.insertBefore(caja, lista.firstChild);
+  function mover(f){
+    var nuevo = !lista.classList.contains('dentro');
+    if (nuevo) caja.style.transition = 'none';
+    caja.style.setProperty('--y', f.offsetTop + 'px'); caja.style.setProperty('--h', f.offsetHeight + 'px');
+    if (nuevo) { caja.offsetWidth; caja.style.transition = ''; lista.classList.add('dentro'); }
+  }
+  lista.addEventListener('mouseleave', function(){ lista.classList.remove('dentro'); });
+  lista.addEventListener('focusout', function(e){ if (!lista.contains(e.relatedTarget)) lista.classList.remove('dentro'); });
 
   // Vídeos: se reproducen solo mientras están a la vista
   if ('IntersectionObserver' in window) { var ojo = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) e.target.play().catch(function(){}); else e.target.pause(); }); }, { threshold: .35 }); document.querySelectorAll('video').forEach(function(v){ ojo.observe(v); }); }
