@@ -6,9 +6,9 @@ Diseñadora digital con base en marketing y cuatro años creando marca, web y pr
 
 ## Proyectos
 
-- **Vistta** (kingseo. / Kocoro): plataforma SaaS que convierte la foto de una estancia vacía en un render profesional para inmobiliarias y estudios de arquitectura. Participó de principio a fin en la investigación, el UX/UI de la web y de la aplicación, el SEO, la dirección de arte, el contenido para redes y las campañas en Meta Ads. Imágenes generadas con Midjourney, NanoBanana y Runway. https://www.visttahome.com/es
-- **Motion** (Musho – AI Studio): herramienta propia con una biblioteca de plantillas animadas que adapta cada pieza a los formatos de redes y anuncios. Dirección de diseño del catálogo, las paletas, la tipografía y la selección de foto. Construida con agentes de IA configurados y dirigidos por ella. https://motion.mushostudio.com/
-- **Aire** (proyecto personal, 2026): app de bienestar que guía por más de 90 prácticas con base científica y ayuda a convertirlas en hábito. Concepto, investigación, UX/UI, redacción y dirección de arte; de la idea a producción en menos de una semana, con cuatro versiones probadas en uso real. No se comercializa.
+- **Vistta** (kingseo. / Kocoro): plataforma SaaS que convierte la foto de una estancia vacía en un render profesional para inmobiliarias y estudios de arquitectura. Participó de principio a fin en investigación, UX/UI de la web y de la app, SEO, dirección de arte, contenido para redes y campañas en Meta Ads. Imágenes generadas con Midjourney, NanoBanana y Runway. https://www.visttahome.com/es
+- **Motion** (Musho – AI Studio): herramienta propia con una biblioteca de más de 250 plantillas de motion graphics que adapta cada pieza a los formatos de redes, anuncios y web. La creó de principio a fin: concepto, diseño UX/UI, catálogo de piezas, animación, paletas, tipografía y selección de foto. Construida con agentes de IA configurados y dirigidos por ella. https://motion.mushostudio.com/
+- **Aire** (proyecto personal, 2026): app de bienestar que guía por más de 90 prácticas con base científica y ayuda a convertirlas en hábito. Concepto, investigación, UX/UI y dirección de arte; de la idea a producción en menos de una semana, con cuatro versiones probadas en uso real. No se comercializa.
 - **Webs** diseñadas y desarrolladas para marcas de España, México y Estados Unidos: 360 Vision, Soul Soothing Method, Ivonne Gama, Synthesis (en Kocoro), Simbiótica, Inspiration Excursions, yuxta y NORGESTION (actualización web y CRM, en Kocoro).
 
 ## Competencias
