@@ -178,6 +178,9 @@ ul{padding:0;list-style:none}
   .lista.dentro .fila.on .hice{transform:translateX(-16px)}
 }
 
+.telon{position:fixed;inset:0;z-index:40;visibility:hidden;pointer-events:none;transform:scaleX(0)}
+.mide .panel{position:static!important}
+
 /* contacto */
 #contacto .int{min-height:100svh;min-height:100lvh;display:flex;flex-direction:column;padding-top:clamp(96px,11vh,150px);padding-bottom:clamp(40px,5vw,72px)}
 .firma{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(18px,2.2vw,30px);padding-block:clamp(40px,6vw,90px)}
@@ -500,11 +503,40 @@ ul{padding:0;list-style:none}
 
   // Scroll suave
   if (window.Lenis) {
-    var lenis = window.__lenis = new Lenis({ duration: 1.1, anchors: true });
+    var lenis = window.__lenis = new Lenis({ duration: 1.1 });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
   }
+
+  // Navbar: un telón del color de la sección de destino entra de izquierda a derecha, se salta debajo y sale por la derecha
+  var telon = document.createElement('div'), viajando = false;
+  telon.className = 'telon'; telon.setAttribute('aria-hidden', 'true'); document.body.appendChild(telon);
+  function sitio(el){
+    // los paneles son pegajosos: su sitio real se mide soltándolos un instante
+    var raiz = document.documentElement; raiz.classList.add('mide');
+    var y = el.getBoundingClientRect().top + scrollY; raiz.classList.remove('mide');
+    return Math.max(0, Math.round(Math.min(y, raiz.scrollHeight - innerHeight)));
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1), el = document.getElementById(id); if (!el) return;
+      e.preventDefault(); if (viajando) return;
+      var y = sitio(el); if (Math.abs(y - scrollY) < 4) return;
+      viajando = true;
+      gsap.timeline({ onComplete: function(){ viajando = false; } })
+        .set(telon, { visibility: 'visible', transformOrigin: 'left center', scaleX: 0, backgroundColor: getComputedStyle(el).backgroundColor })
+        .to(telon, { scaleX: 1, duration: .55, ease: 'expo.inOut' })
+        .add(function(){
+          nav.dataset.tono = oscuros[id] ? 'oscuro' : 'claro';
+          if (window.__lenis) __lenis.scrollTo(y, { immediate: true, force: true }); else scrollTo(0, y);
+          ScrollTrigger.update(); seccionActual(); history.replaceState(null, '', '#' + id);
+        })
+        .set(telon, { transformOrigin: 'right center' }, '+=.1')
+        .to(telon, { scaleX: 0, duration: .65, ease: 'expo.inOut' })
+        .set(telon, { visibility: 'hidden' });
+    });
+  });
 
   // Paneles apilados: cada uno se queda quieto al acabar y el siguiente lo cubre
   function pegar(){ paneles.forEach(function(p, i){ p.style.zIndex = i + 1; p.style.top = Math.min(0, innerHeight - p.offsetHeight) + 'px'; }); if (paneles[1]) paneles[1].style.marginTop = paneles[0].offsetHeight > innerHeight + 40 ? '40vh' : ''; }
