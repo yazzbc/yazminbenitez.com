@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Yazmín Benítez · Product Designer</title>
+<meta name="description" content="I'm a product designer. I design complex web apps &amp; their design systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#EEEEEC;--tarjeta:#E3E1E0;--tinta:#1B1B1A;--suave:#6F6E6A;--linea:rgba(27,27,26,.16);
+  --crema:#F1EADF;--morado:#6A5BC4;--lila:#A99EF0;--lila-claro:#D9D3F7;
+  --sombra:112,102,150;           
+  --margen:clamp(20px,3.6vw,72px);
+  --sans:"Instrument Sans",system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--papel)}
+body{font-family:var(--sans);color:var(--tinta);background:var(--papel);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
+.num{font-family:var(--serif);font-size:clamp(34px,3.4vw,60px);line-height:1;letter-spacing:-.02em}
+.bn{filter:grayscale(1) contrast(1.04);transition:filter .7s ease}
+.nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px var(--margen);color:#fff;mix-blend-mode:difference;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.nav.fuera:not(:focus-within){transform:translateY(-110%);opacity:0;pointer-events:none}
+.nav .yo{font-weight:500;text-decoration:none;font-size:17px;letter-spacing:-.01em}
+.nav ul{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:6px;list-style:none;padding:0}
+.nav ul a{position:relative;z-index:1;display:block;padding:8px 16px;text-decoration:none;font-size:15px}
+.nav .marca{position:absolute;top:0;left:0;height:100%;width:0;background:rgba(255,255,255,.2);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.nav .fin{display:flex;align-items:center;gap:22px}
+.nav .cta[aria-current]::before{transform:scaleX(1)}
+.menu{display:contents}
+.burger{display:none}
+.nav .idioma{text-decoration:none;font-size:15px}
+.cta{position:relative;overflow:hidden;display:inline-block;padding:11px 24px;background:var(--tinta);color:#fff;text-decoration:none;font-size:15px;isolation:isolate}
+.nav .cta{background:#fff;color:#000}
+.nav .cta::before{background:rgba(0,0,0,.28)}
+.cta::before{content:"";position:absolute;inset:0;background:var(--morado);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.cta:hover::before{transform:scaleX(1)}
+.sombra{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;overflow:hidden;background:rgb(var(--sombra));opacity:.62}
+.sombra video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen}
+.hero{position:sticky;top:0;z-index:0;height:100svh;min-height:620px;overflow:hidden;background:var(--tinta)}
+.hero .dentro{position:absolute;inset:0;display:flex;align-items:flex-end;padding:120px var(--margen) clamp(36px,5.4vw,96px);background:var(--papel);will-change:filter,opacity}
+.bloque,.cierre{z-index:1;background:var(--papel)}
+.hero .sombra{inset:0 auto auto 0;width:58%;height:66%;-webkit-mask-image:radial-gradient(105% 105% at 0% 0%,#000 52%,transparent 92%);mask-image:radial-gradient(105% 105% at 0% 0%,#000 52%,transparent 92%)}
+.hero .sombra video{transform:scaleX(-1)}
+.hero .fila{position:relative;width:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.hero h1{font-weight:500;font-size:clamp(38px,4.35vw,90px);line-height:1.02;letter-spacing:-.04em;max-width:13.5em}
+.tarjetas{flex:0 0 clamp(320px,35vw,700px);display:grid;gap:12px}
+.tarjeta{display:grid;grid-template-columns:31.5% 1fr;background:var(--tarjeta)}
+.tarjeta .foto{aspect-ratio:1/.9;overflow:hidden}
+.tarjeta .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 8%}
+.tarjeta p{align-self:center;padding:14px clamp(16px,1.6vw,30px);font-size:clamp(14px,1.08vw,21px);line-height:1.42;letter-spacing:-.005em}
+.tarjeta:hover .bn{filter:none}
+.tarjeta i{font-family:var(--serif);font-size:1.18em;color:var(--morado)}
+.bloque{position:relative;padding:clamp(90px,11vw,220px) var(--margen)}
+.cab{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--linea);margin-bottom:clamp(40px,5vw,90px)}
+.frase{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.1vw,84px);line-height:1.04;letter-spacing:-.025em;max-width:15em}
+.frase i{color:var(--morado)}
+.elige{display:flex;flex-wrap:wrap;gap:6px;margin:-20px 0 clamp(30px,4vw,70px)}
+.elige button{font:inherit;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--linea);background:transparent;color:var(--tinta);cursor:pointer}
+.elige button.on{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.pop,.wop{display:none}.pop.on,.wop.on{display:block}
+.sg{margin-left:calc(-1*var(--margen));margin-right:calc(-1*var(--margen))}
+.ver{display:inline-block;margin-top:22px;font-size:15px;border-bottom:1px solid currentColor;padding-bottom:2px}
+.pk{margin:clamp(50px,6vw,120px) calc(-1*var(--margen)) 0;display:flow-root}
+.pk .kc{margin-bottom:55vh}
+.tapado{visibility:hidden}
+.pk .kc{--fondo:var(--crema);color:var(--tinta);position:sticky;top:0;background:var(--fondo);overflow:clip}
+#k-crm,#k-vistta{--fondo:var(--crema)}#k-sparring,#k-graphs{--fondo:#ECE9F8}#k-motion{--fondo:var(--tarjeta)}
+.pk .kc .int{padding:clamp(72px,9vw,150px) var(--margen);transform-origin:50% calc(100% - 50vh)}
+.pk .kc .velo{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.pk .moviles .marco{border-radius:clamp(10px,1.5vw,22px)}
+#proyectos{position:sticky;padding-bottom:0;background:var(--crema)}
+.mide #proyectos,.mide .pk .kc{position:static!important}
+.pk .kcab{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid var(--linea);padding-top:14px}
+.pk h3{font-family:var(--serif);font-weight:400;font-size:clamp(72px,12.5vw,230px);line-height:.86;letter-spacing:-.035em;margin-top:clamp(16px,2.4vw,40px)}
+.pk .entrada{display:grid;grid-template-columns:1fr 1fr;gap:var(--margen);margin-top:clamp(28px,4.5vw,72px);align-items:end}
+.pk .mano{font-family:var(--serif);font-style:italic;color:var(--morado);font-size:clamp(22px,2vw,34px);line-height:1.1}
+.pk .lead{font-family:var(--serif);font-size:clamp(26px,2.7vw,48px);line-height:1.08;letter-spacing:-.02em;max-width:19em}
+.pk .marco{overflow:hidden}
+.pk .marco img{display:block;width:100%;height:auto}
+.pk .galeria{margin-top:clamp(40px,6vw,110px)}
+.pk .galeria.dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,28px)}
+.pk .galeria.dos img{aspect-ratio:16/10;height:100%;object-fit:cover;object-position:left top}
+.pk .moviles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,28px);align-items:start}
+.pk .moviles .marco:nth-child(even){margin-top:clamp(24px,6vw,110px)}
+.pk .ver{margin-top:6px;align-self:flex-start;color:var(--tinta);text-decoration:none}
+.pk .ficha{display:grid;grid-template-columns:1fr 1fr;gap:var(--margen);margin-top:clamp(40px,6vw,110px);align-items:start}
+.pk .ficha dl{border-bottom:1px solid var(--linea)}
+.pk .ficha dl > div{display:grid;grid-template-columns:8.5em 1fr;gap:20px;padding-block:18px;border-top:1px solid var(--linea)}
+.pk .ficha dt{font-family:var(--serif);font-size:clamp(20px,1.5vw,26px);line-height:1.15}
+.pk .ficha dd{color:var(--suave)}
+.pk .ficha dd b{font-weight:500;color:var(--tinta)}
+.pk .puntos{list-style:none;padding:0;display:grid;gap:.45em;margin-top:.55em}
+.pk .puntos li{position:relative;padding-left:1.1em}
+.pk .puntos li::before{content:"";position:absolute;left:.1em;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--morado)}
+.pk .ficha .izq{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.pk .apunte{max-width:27em;font-size:15px;color:var(--suave)}
+.pk .boton{position:relative;overflow:hidden;isolation:isolate;display:inline-block;padding:16px 26px;background:var(--morado);color:#fff;text-decoration:none;font-weight:500;transition:transform .2s}
+.pk .boton::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta);transform:scaleX(0);transform-origin:right;transition:transform .55s cubic-bezier(.2,.7,.1,1)}
+@media (hover:hover){.pk .boton:hover::before{transform:none;transform-origin:left}}
+.pk .boton:active{transform:scale(.97)}
+.wb{position:relative;margin:0 calc(-1*var(--margen));padding:20px 0 clamp(30px,4vw,70px);overflow:hidden}
+.wb .cinta{position:relative;display:flex;align-items:flex-end;width:max-content;will-change:transform}
+.flechas{display:flex;justify-content:flex-end;gap:8px;margin-top:clamp(30px,4vw,70px)}
+.flechas button{width:48px;height:48px;border:1px solid var(--linea);background:transparent;color:var(--tinta);font:inherit;font-size:20px;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.flechas button:hover{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.wb a{flex:none;width:21vw;min-width:230px;margin-right:clamp(14px,1.6vw,30px);text-decoration:none}
+.wb a:nth-child(3n+2){width:27vw}.wb a:nth-child(3n){width:17vw}
+.wb .marco{aspect-ratio:16/10;overflow:hidden;background:var(--tarjeta)}
+.wb .marco img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1);transition:filter .5s,transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.wb a:hover img{filter:none;transform:scale(1.04)}
+.wb .pie{display:grid;gap:3px;margin-top:10px}
+.wb .pie .meta:first-child{color:var(--tinta)}
+.wc{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,56px) clamp(12px,1.4vw,28px);margin-top:clamp(50px,6vw,110px)}
+.wc a{text-decoration:none;transition:opacity .45s}
+@media (hover:hover){.wc:has(a:hover) a:not(:hover){opacity:.42}}
+.wc .marco{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--tarjeta)}
+.wc .marco img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1);transition:filter .6s,transform 1.3s cubic-bezier(.2,.8,.2,1)}
+.wc a:hover img{filter:none;transform:scale(1.04)}
+.wc .ir{position:absolute;left:var(--x,50%);top:var(--y,50%);padding:9px 16px;border-radius:999px;background:var(--tinta);color:#fff;font-size:13px;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .25s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.wc a:hover .ir{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.wc .pie{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.wc h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,1.9vw,36px);line-height:1.1;letter-spacing:-.01em;background:linear-gradient(var(--morado),var(--morado)) left bottom/0 1px no-repeat;transition:background-size .5s cubic-bezier(.2,.8,.2,1),color .3s}
+.wc a:hover h3{background-size:100% 1px;color:var(--morado);font-style:italic}
+.wd{margin-top:clamp(50px,6vw,110px)}
+.wd .pant{position:relative;aspect-ratio:16/7;overflow:hidden;background:var(--tarjeta)}
+.wd .pant a{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s .9s}
+.wd .pant a.on{opacity:1;visibility:visible;transition:opacity .9s ease}
+.wd .pant img{width:100%;height:100%;object-fit:cover;object-position:top;transform:scale(1.06);transition:transform 6s linear}
+.wd .pant a.on img{transform:none}
+.wd .prog{height:2px;background:var(--linea);margin-top:0}
+.wd .prog i{display:block;height:100%;background:var(--morado);transform:scaleX(0);transform-origin:left}
+.wd .bajo{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:20px}
+.wd h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,84px);line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+.wd .der{display:flex;align-items:center;gap:26px}.wd .flechas{margin-top:0}
+.indice{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,80px);align-items:start;margin-top:clamp(50px,6vw,110px)}
+.visor{position:sticky;top:110px;aspect-ratio:4/4.3;overflow:hidden;background:var(--tarjeta)}
+.visor img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.04);transition:opacity .6s ease,transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.visor img.on{opacity:1;transform:none}
+.lista{position:relative;border-top:1px solid var(--linea)}
+.caja{position:absolute;left:0;top:0;width:100%;height:0;background:var(--lila-claro);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.renglon{position:relative;display:grid;grid-template-columns:3.2em 1fr auto;align-items:baseline;gap:16px;padding:clamp(16px,1.5vw,26px) 14px;border-bottom:1px solid var(--linea);text-decoration:none}
+.renglon h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.5vw,46px);line-height:1;letter-spacing:-.015em;display:inline;margin-right:14px}
+.renglon .n{font-family:var(--serif);font-size:19px;letter-spacing:0;color:var(--tinta)}
+.renglon .mini{display:none}
+.mini3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,60px)}
+.mini3 dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);padding-bottom:12px;border-bottom:1px solid var(--linea);margin-bottom:14px}
+.mini3 dd{margin:0;font-size:15px;line-height:1.75}
+.mini3 dd span{display:block}
+.lee{font-family:var(--serif);font-size:clamp(30px,4.3vw,88px);line-height:1.06;letter-spacing:-.025em;max-width:19em}
+.lee i{color:var(--morado)}
+.lee .w{display:inline-block}
+.lee + .mini3{margin-top:clamp(60px,7vw,130px)}
+.cierre .sombra{inset:auto 0 0 auto;width:52%;height:82%;opacity:.5;-webkit-mask-image:radial-gradient(100% 100% at 100% 100%,#000 45%,transparent 88%);mask-image:radial-gradient(100% 100% at 100% 100%,#000 45%,transparent 88%)}
+.cierre .sombra video{transform:scaleX(-1);object-position:0% 100%}
+.cierre{background:var(--lila-claro)}
+.cierre .relieve{color:var(--lila-claro)}
+.cierre .cab,.cierre .trato{position:relative}
+.cierre{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:clamp(70px,7vw,130px) var(--margen) 0;overflow:hidden}
+.cierre .cab{margin-bottom:clamp(40px,5vw,90px)}
+.trato{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex:1}
+.hola{font-family:var(--serif);font-style:italic;color:var(--morado);font-size:clamp(26px,2.5vw,46px);line-height:1;margin-bottom:.5em}
+.relieve{font-family:var(--serif);font-weight:400;font-size:8.2vw;line-height:.9;letter-spacing:-.02em;position:relative;white-space:nowrap;text-align:left;margin:clamp(60px,8vw,150px) 0 .22em -.04em;color:var(--papel);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.95),-3px -3px 6px rgba(255,255,255,.8),1px 1px 1px rgba(27,27,26,.22),4px 5px 9px rgba(27,27,26,.13);user-select:none}
+.correo{display:inline-block;font-weight:500;font-size:clamp(26px,4.35vw,90px);line-height:1.02;letter-spacing:-.04em;text-decoration:none;background:linear-gradient(var(--morado),var(--morado)) left bottom/0 2px no-repeat;transition:background-size .7s cubic-bezier(.2,.8,.2,1),color .4s;padding-bottom:.06em}
+.correo:hover{color:var(--morado);background-size:100% 2px}
+.enlaces{list-style:none;padding:0;text-align:right;display:grid;gap:6px}
+.enlaces a{text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
+.enlaces a:hover{color:var(--morado)}
+.js [data-sube]{opacity:0;filter:blur(12px)}
+.js [data-abre]{clip-path:inset(0 0 100% 0)}
+.pal{display:inline-block}
+.js .pal>span{display:inline-block;filter:blur(14px);opacity:0}
+@media (max-width:900px){
+  .nav.abierto{mix-blend-mode:normal;color:var(--papel);transform:none;opacity:1;pointer-events:auto}
+  .nav .yo,.burger{position:relative;z-index:2}
+  .burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-11px;padding:0;border:0;background:none;color:inherit;cursor:pointer}
+  .burger span{grid-area:1/1;width:22px;height:1.5px;background:currentColor;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .burger span:first-child{transform:translateY(-4px)}
+  .burger span:last-child{transform:translateY(4px)}
+  .nav.abierto .burger span:first-child{transform:rotate(45deg)}
+  .nav.abierto .burger span:last-child{transform:rotate(-45deg)}
+  .menu{position:fixed;inset:0;z-index:1;height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:32px;padding:96px var(--margen) 48px;background:var(--tinta);color:var(--papel);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+  .nav.abierto .menu{opacity:1;visibility:visible}
+  .nav ul{position:static;transform:none;flex-direction:column;gap:0}
+  .nav ul a{padding:8px 0;font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
+  .nav .marca{display:none}
+  .nav .menu .cta{padding:14px 24px;font-size:17px;background:var(--papel);color:var(--tinta)}
+  .hero{position:relative;height:auto;min-height:100svh;display:flex}
+  .hero .dentro{position:relative;inset:auto;width:100%;padding-top:150px}
+  .hero .fila{flex-direction:column;align-items:stretch}
+  .hero h1{font-size:clamp(34px,9.6vw,60px)}
+  .tarjetas{flex:none}
+  .tarjeta p{font-size:14px}
+  .indice{grid-template-columns:1fr}.visor{display:none}
+  .renglon{grid-template-columns:2.4em 1fr;row-gap:6px}.renglon .hice{grid-column:2}
+  .renglon h3{display:block;margin-right:0}
+  .pk .galeria:not(.dos):not(.moviles){margin-inline:calc(-1*var(--margen))}
+  .wb a{width:62vw!important}
+  .wc{grid-template-columns:1fr}.pj{grid-template-columns:1fr;min-height:0}.pj .lado{gap:40px}.wd .pant{aspect-ratio:4/3}
+  .pk .entrada,.pk .ficha{grid-template-columns:1fr}.pk .galeria.dos{grid-template-columns:1fr}.pk .moviles{grid-template-columns:1fr 1fr}
+  .pk .ficha dl > div{grid-template-columns:1fr;gap:4px}.pk .ficha .izq{align-items:flex-start;order:2}
+  .mini3{grid-template-columns:1fr}
+  .trato{flex-direction:column}.enlaces{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  .js [data-sube],.js [data-abre],.js .pal>span{opacity:1;transform:none;filter:none;clip-path:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Sections">
+  <a class="yo" href="#inicio">Yazmín Benítez</a>
+  <div class="menu" id="menu">
+  <ul>
+    <li class="marca" aria-hidden="true"></li>
+    <li><a href="#proyectos">Work</a></li>
+    <li><a href="#webs">Websites</a></li>
+    <li><a href="#sobre-mi">About</a></li>
+    <li><a href="cv-yazmin-benitez.pdf" target="_blank" rel="noopener">CV</a></li>
+  </ul>
+  <div class="fin"><a class="cta" href="#contacto">Contact</a></div>
+  </div>
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</nav>
+<main>
+<section class="hero" id="inicio">
+ <div class="dentro">
+  <div class="sombra" aria-hidden="true"><video src="img/sombra-c.mp4" poster="img/sombra-c.jpg" muted loop playsinline autoplay preload="auto"></video></div>
+  <div class="fila">
+    <h1 data-parte>I'm a product designer. I&nbsp;design complex web apps &amp; their design systems.</h1>
+    <div class="tarjetas">
+      <div class="tarjeta" data-sube>
+        <div class="foto"><img class="bn" src="img/yaz.jpg" alt="Portrait of Yazmín Benítez"></div>
+        <p><i>Hi, I'm Yaz.</i> My background combines marketing and digital product design.</p>
+      </div>
+      <div class="tarjeta" data-sube>
+        <div class="foto"><img class="bn" src="img/hojas.jpg" alt="" style="object-position:50% 50%"></div>
+        <p>AI lets me take an idea all the way through. I use it so I can focus on the human side, on creativity and on exploration.</p>
+      </div>
+    </div>
+  </div>
+ </div>
+</section>
+<section class="bloque" id="proyectos">
+  <div class="cab meta"><span>Products</span><span>2026</span></div>
+  <h2 class="frase" data-parte>Products designed and shipped <i>with AI</i>.</h2>
+  <div class="pop on" data-p="k"><div class="pk">
+<article class="kc" id="k-crm"><div class="int">
+    <div class="kcab meta"><span>01</span><span>Design system &amp; internal product · Musho – AI Studio</span></div>
+    <h3 data-parte>Musho CRM</h3>
+    <div class="entrada">
+      <p class="mano nota" data-sube>One design system behind every screen</p>
+      <p class="lead" data-sube>The web app our studio runs on: pipeline, tasks, documents and content in one place.</p>
+    </div>
+    <div class="galeria">
+      <div class="marco" data-abre><img decoding="async" src="img/crm-panel.jpg" width="2400" height="1200" alt="Musho CRM team panel in dark mode: six figures for the day and the week on top and, below, the daily work list with each lead, its stage, next action, owner and overdue alerts"></div>
+    </div>
+    <div class="ficha">
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>A small studio ends up with its work spread across a pipeline tool, a task board, a docs tool and a content calendar. Each one looks and behaves differently, and nothing connects.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>One web app built on a single design system. Tables, boards and documents share the same components, so a new screen feels familiar the first time you open it. It works in light and dark mode, on a desktop and on a phone.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I lead the design of the whole product and <b>own the design system</b>: tokens, components and the rules for using them. Every new screen is audited against the system before it ships, and what the audit finds goes back into the system as a rule.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>The app is built in code with <b>AI agents</b>. The design system is written as rules they can read, so they reach for the right component by default.</dd></div>
+      </dl>
+    </div>
+  </div></article>
+<article class="kc" id="k-sparring"><div class="int">
+    <div class="kcab meta"><span>02</span><span>LLM app with LLM-as-a-judge evaluation · Musho – AI Studio</span></div>
+    <h3 data-parte>Sparring</h3>
+    <div class="entrada">
+      <p class="mano nota" data-sube>An AI judge with 21 criteria</p>
+      <p class="lead" data-sube>A tool where a salesperson rehearses a call with an AI client, and an AI judge scores the conversation.</p>
+    </div>
+    <div class="galeria">
+      <div class="marco" data-abre><img decoding="async" src="img/sparring-ancha.jpg" width="2376" height="1280" alt="A judged round in Sparring: the AI client Carmen on the left and, in the centre, why the round scored 64, with the points the judge gave on each dimension from Opening to Tone"></div>
+    </div>
+    <div class="ficha">
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>Salespeople practise on real customers, where every mistake costs a sale. And feedback like “be more convincing” gives them nothing to work on.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>You pick a sector and a character, hold the conversation by voice and get a score with the reason behind it: a breakdown by dimension and the one thing to fix next. Behind that score, the judge checks 21 criteria.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I designed the interface and worked on <b>the scoring rubric itself</b>. I rewrote 8 criteria the judge kept scoring inconsistently, and inconsistent verdicts on them dropped by 29%.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>The client and the judge are <b>language models</b>. Each change to the rubric is run as an evaluation: the same set of recorded conversations is re-judged, and I count where the verdict changes.</dd></div>
+      </dl>
+    </div>
+  </div></article>
+<article class="kc" id="k-motion"><div class="int">
+    <div class="kcab meta"><span>03</span><span>Animation tool (motion graphics) · Musho – AI Studio</span></div>
+    <h3 data-parte>Motion</h3>
+    <div class="entrada">
+      <p class="mano nota" data-sube>A library of 250+ motion graphics templates to customise</p>
+      <p class="lead" data-sube>An in-house tool that adapts each animated piece to social media, ad and web formats.</p>
+    </div>
+    <div class="galeria">
+      <div class="marco" data-abre><img decoding="async" src="img/motion-ancha.jpg" width="2400" height="1200" alt="Motion editor: the catalogue of animated templates on the left, a 3D cover ring in the centre and the format, duration and ring settings on the right"></div>
+    </div>
+    <div class="ficha">
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>Adapting the same piece to every format, message and target audience is repetitive work that takes up many hours of a creative team's time when everything is made from scratch.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>A tool where you pick an animated template, adjust the colour palette, typography, photo and format, and the variant is ready to publish.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I created the tool from start to finish: the concept, the <b>UX/UI design</b>, the template catalogue and the <b>animation</b> of each piece. I defined the palettes, the typography and the photo selection so that any combination you choose looks polished and ready to publish.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>The tool is built with <b>AI agents</b> that I configured and directed.</dd></div>
+      </dl>
+      <div class="izq" data-sube>
+        <a class="boton" href="https://motion.mushostudio.com/" target="_blank" rel="noopener">Try motion.mushostudio.com →</a>
+      </div>
+    </div>
+  </div></article>
+<article class="kc" id="k-vistta"><div class="int">
+    <div class="kcab meta"><span>04</span><span>SaaS product · kingseo. / Kocoro</span></div>
+    <h3 data-parte>Vistta</h3>
+    <div class="entrada">
+      <p class="mano nota" data-sube>1,400 users in 6 months</p>
+      <p class="lead" data-sube>A platform that turns a photo of an empty room into a professional render for real estate agencies and architecture studios.</p>
+    </div>
+    <div class="galeria dos">
+      <div class="marco" data-abre><img decoding="async" src="img/vistta-4.jpg" width="1440" height="900" alt="The Vistta app: an empty room on the left and the furnished proposals on the right"></div>
+      <div class="marco" data-abre><img decoding="async" src="img/vistta-comparativa.jpg" width="1342" height="823" alt="Before and after a living room goes through Vistta: empty on the left and furnished on the right"></div>
+    </div>
+    <div class="ficha">
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>An empty room shows little of what it could become. Real estate agencies and studios need to show that potential to their clients without furnishing every space.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>An app where you upload a photo of the room and get furnished proposals back in different styles, crafted down to the detail, along with a website that presents the product.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I was involved from start to finish: research, <b>UX/UI for the app and the website,</b> SEO and art direction.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd><b>The website and the entire SaaS</b> are built with <b>AI agents</b> configured specifically for this project. <b>Image generation</b> with Midjourney, NanoBanana and Runway, with many rounds of iteration until the results were precise.</dd></div>
+      </dl>
+      <div class="izq" data-sube>
+        <a class="boton" href="https://www.visttahome.com/es" target="_blank" rel="noopener">See visttahome.com →</a>
+      </div>
+    </div>
+  </div></article>
+<article class="kc" id="k-graphs"><div class="int">
+    <div class="kcab meta"><span>05</span><span>In-house tool · Musho – AI Studio</span></div>
+    <h3 data-parte>Graphs</h3>
+    <div class="entrada">
+      <p class="mano nota" data-sube>100 generative visuals, each one adjustable</p>
+      <p class="lead" data-sube>A full-screen canvas for exploring animated visuals written in code, with a panel to tune every value.</p>
+    </div>
+    <div class="galeria">
+      <div class="marco" data-abre><img decoding="async" src="img/graphs-ancha.jpg" width="2400" height="1200" alt="Graphs in dark mode: the shape, motion and colour settings on the left, a glass icosahedron bending red diagonal bands in the centre and the export options on the right"></div>
+    </div>
+    <div class="ficha">
+      <dl>
+        <div data-sube><dt>The challenge</dt><dd>Every tweak to an animated background meant another round trip between design and code. Exploring a direction took days.</dd></div>
+        <div data-sube><dt>The solution</dt><dd>A canvas with 100 visuals. A shuffle button jumps to another one with random settings, a panel exposes every value, and the exact state is saved in the link so it can be shared.</dd></div>
+        <div data-sube><dt>What I did</dt><dd>I made it from start to finish: the idea, the <b>UX/UI of the control panel</b>, and choosing and tuning each visual.</dd></div>
+        <div data-sube><dt>AI in the process</dt><dd>The visuals and the tool are written in code by <b>AI agents</b> that I configured and directed.</dd></div>
+      </dl>
+      <div class="izq" data-sube>
+        <a class="boton" href="https://graphs.mushostudio.com" target="_blank" rel="noopener">Try graphs.mushostudio.com →</a>
+      </div>
+    </div>
+  </div></article>
+  </div></div>
+</section>
+<section class="bloque" id="webs">
+  <div class="cab meta"><span>Websites</span><span>Spain · Mexico · United States</span></div>
+  <h2 class="frase" data-parte>Websites designed and built for brands in <i>three countries</i>.</h2>
+  <div class="wop" data-w="0">
+  <div class="indice">
+    <div class="visor" aria-hidden="true" data-abre>
+      <img decoding="async" src="img/clinica.jpg" alt="" class="on">
+      <img decoding="async" src="img/soul.jpg" alt="">
+      <img decoding="async" src="img/ivonne.jpg" alt="">
+      <img decoding="async" src="img/synthesis.jpg" alt="">
+      <img decoding="async" src="img/simbiotica.jpg" alt="">
+      <img decoding="async" src="img/inspiration.jpg" alt="">
+      <img decoding="async" src="img/inputs.jpg" alt="">
+      <img decoding="async" src="img/life.jpg" alt="">
+      <img decoding="async" src="img/norgestion.jpg" alt="">
+    </div>
+    <div class="lista">
+      <div class="caja" aria-hidden="true"></div>
+      <a class="renglon" href="https://www.clinica360vision.com/" target="_blank" rel="noopener"><span class="n">01</span><div><h3>360 Vision</h3><span class="meta">Eye clinic</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://www.soulsoothingmethod.com/" target="_blank" rel="noopener"><span class="n">02</span><div><h3>Soul Soothing Method</h3><span class="meta">Family wellbeing</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://ivonnegama.com/" target="_blank" rel="noopener"><span class="n">03</span><div><h3>Ivonne Gama</h3><span class="meta">Creativity and keynotes</span></div><span class="meta hice">Branding and website</span></a>
+      <a class="renglon" href="https://www.synthesis-coach.com/" target="_blank" rel="noopener"><span class="n">04</span><div><h3>Synthesis</h3><span class="meta">Creative coaching</span></div><span class="meta hice">Design and development · at Kocoro</span></a>
+      <a class="renglon" href="https://www.simbiotica.online/" target="_blank" rel="noopener"><span class="n">05</span><div><h3>Simbiótica</h3><span class="meta">Real estate developer</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://www.inspirationexcursions.com/" target="_blank" rel="noopener"><span class="n">06</span><div><h3>Inspiration Excursions</h3><span class="meta">Experiences for companies</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://www.getmoreinputs.com/" target="_blank" rel="noopener"><span class="n">07</span><div><h3>yuxta</h3><span class="meta">Creativity consultancy</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://www.lifeinparentheses.com/" target="_blank" rel="noopener"><span class="n">08</span><div><h3>( life )</h3><span class="meta">Inspiration for organisations</span></div><span class="meta hice">Design and development</span></a>
+      <a class="renglon" href="https://www.norgestion.com/" target="_blank" rel="noopener"><span class="n">09</span><div><h3>NORGESTION</h3><span class="meta">Financial advisory</span></div><span class="meta hice">Website update and CRM · at Kocoro</span></a>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="bloque" id="sobre-mi">
+  <div class="cab meta"><span>About</span><span>Spain</span></div>
+    <p class="lee">My background combines marketing and <i>digital product design</i>. I have spent four years designing products and websites for clients in Spain and the United States. I own a design system that lives in code, and I work with AI agents every day to ship interface work myself.</p>
+    <dl class="mini3">
+        <div data-sube><dt>Design</dt><dd><span>Figma</span><span>Design systems and tokens</span><span>Webflow</span></dd></div>
+        <div data-sube><dt>AI &amp; code</dt><dd><span>AI agents · Claude Code</span><span>Next.js · Tailwind</span><span>n8n · Make</span></dd></div>
+        <div data-sube><dt>Education</dt><dd><span>Master's in UX/UI, Graphic and Web Design</span><span>Master's in Design Thinking and UX/UI Design</span><span>Diploma in Digital Marketing</span></dd></div>
+    </dl>
+</section>
+<section class="cierre" id="contacto">
+  <div class="sombra" aria-hidden="true"><video src="img/sombra-b.mp4" poster="img/sombra-b.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+  <div class="cab meta"><span>Contact</span><span>Spain</span></div>
+  <div class="trato">
+    <div>
+      <p class="hola" data-sube>Let's talk</p>
+      <a class="correo" href="mailto:yazminbenitezc@gmail.com" data-parte>yazminbenitezc@gmail.com</a>
+    </div>
+    <ul class="enlaces">
+      <li data-sube><a href="https://www.linkedin.com/in/yazminbenitezc" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li data-sube><a href="cv-yazmin-benitez.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      <li data-sube><a href="#inicio">Back to top</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.sombra video').forEach(function(v){
+    if (v.closest('.cierre')) v.defaultPlaybackRate = v.playbackRate = .45;   
+    if (quieto) { v.removeAttribute('autoplay'); v.pause(); return; }
+    new IntersectionObserver(function(e){ if (e[0].isIntersecting) v.play().catch(function(){}); else v.pause(); }).observe(v);
+  });
+})();
+var PROY = 'k';   
+var WEBS = '0'; document.querySelector('.wop').classList.add('on');   
+var KC = PROY === 'k' ? [].slice.call(document.querySelectorAll('.pk .kc')) : [];
+function sitio(el){ var r = document.documentElement; r.classList.add('mide'); var y = el.getBoundingClientRect().top + scrollY; r.classList.remove('mide'); return y; }
+(function(){
+  if (!KC.length) return;
+  var sec = document.querySelector('#proyectos');
+  function pegar(){ KC.concat(sec).forEach(function(p){ p.style.top = Math.min(0, innerHeight - p.offsetHeight) + 'px'; }); }
+  pegar(); addEventListener('resize', pegar); addEventListener('load', pegar);
+})();
+(function(){
+  var wb = document.querySelector('.wb'); if (!wb || WEBS !== 'b') return;
+  var c = wb.querySelector('.cinta'), pos = 0, meta = 0, encima = false, t0 = 0, quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function paso(){ var a = c.querySelector('a'); return a.offsetWidth + parseFloat(getComputedStyle(a).marginRight); }
+  wb.addEventListener('mouseenter', function(){ encima = true; }); wb.addEventListener('mouseleave', function(){ encima = false; });
+  wb.parentNode.querySelectorAll('.flechas button').forEach(function(b){ b.addEventListener('click', function(){ meta += (+b.dataset.d) * paso() * 1.6; }); });
+  (function tic(t){
+    var dt = Math.min(50, t - (t0 || t)); t0 = t;
+    if (!quieto && !encima) meta += dt * .045;
+    pos += (meta - pos) * Math.min(1, dt * .006);
+    var m = c.scrollWidth / 2, x = ((pos % m) + m) % m;
+    c.style.transform = 'translateX(' + (-x) + 'px)';
+    requestAnimationFrame(tic);
+  })(0);
+})();
+document.querySelectorAll('.wc .marco').forEach(function(m){
+  m.addEventListener('mousemove', function(e){ var r = m.getBoundingClientRect(); m.style.setProperty('--x', (e.clientX - r.left) + 'px'); m.style.setProperty('--y', (e.clientY - r.top) + 'px'); });
+});
+(function(){
+  var wd = document.querySelector('.wd'); if (!wd || WEBS !== 'd') return;
+  var ps = [].slice.call(wd.querySelectorAll('.pant a')), h = wd.querySelector('h3'), sec = wd.querySelector('.sec'), cnt = wd.querySelector('.cnt'), bar = wd.querySelector('.prog i');
+  var i = -1, t = 0, t0 = 0, encima = false, DUR = 5000, quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+  function pon(n){ i = (n + ps.length) % ps.length; t = 0; ps.forEach(function(p, j){ p.classList.toggle('on', j === i); }); h.textContent = ps[i].dataset.t; sec.textContent = ps[i].dataset.m; cnt.textContent = dos(i + 1) + ' / ' + dos(ps.length); }
+  wd.querySelector('.pant').addEventListener('mouseenter', function(){ encima = true; }); wd.querySelector('.pant').addEventListener('mouseleave', function(){ encima = false; });
+  wd.querySelectorAll('.flechas button').forEach(function(b){ b.addEventListener('click', function(){ pon(i + (+b.dataset.d)); }); });
+  pon(0);
+  (function tic(x){ var dt = Math.min(50, x - (t0 || x)); t0 = x; if (!quieto && !encima) t += dt; if (t >= DUR) pon(i + 1); bar.style.transform = 'scaleX(' + (t / DUR) + ')'; requestAnimationFrame(tic); })(0);
+})();
+(function(){
+  var menos = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('.nav');
+  var sig = document.querySelector('#proyectos');
+  function barra(){ nav.classList.toggle('baja', sig.getBoundingClientRect().top <= 1); }
+  addEventListener('scroll', barra, { passive: true }); barra();
+  var y0 = scrollY;
+  addEventListener('scroll', function(){ var y = scrollY; if (Math.abs(y - y0) < 8) return; nav.classList.toggle('fuera', y > y0 && y > innerHeight * .4); y0 = y; }, { passive: true });
+  
+  var burger = nav.querySelector('.burger');
+  function menu(ab){
+    nav.classList.toggle('abierto', ab); burger.setAttribute('aria-expanded', ab); burger.setAttribute('aria-label', ab ? 'Close menu' : 'Open menu');
+    document.documentElement.style.overflow = ab ? 'hidden' : '';
+    if (window.__lenis) { if (ab) __lenis.stop(); else __lenis.start(); }
+  }
+  burger.addEventListener('click', function(){ menu(!nav.classList.contains('abierto')); });
+  nav.querySelectorAll('.menu a, .yo').forEach(function(a){ a.addEventListener('click', function(){ menu(false); }); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape') menu(false); });
+  
+  var ul = nav.querySelector('ul'), marca = nav.querySelector('.marca');
+  ul.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('mouseenter', function(){ marca.style.width = a.offsetWidth + 'px'; marca.style.transform = 'translateX(' + a.offsetLeft + 'px)'; marca.style.opacity = 1; });
+  });
+  var activo = null;
+  function posa(a){ if (!a) { marca.style.opacity = 0; return; } marca.style.width = a.offsetWidth + 'px'; marca.style.transform = 'translateX(' + a.offsetLeft + 'px)'; marca.style.opacity = 1; }
+  ul.addEventListener('mouseleave', function(){ posa(activo); });
+  var enl = [].slice.call(nav.querySelectorAll('a[href^="#"]')).filter(function(a){ return a.getAttribute('href').length > 1 && !a.classList.contains('yo'); });
+  var secs = enl.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var hero = document.querySelector('.hero'), hv = hero.querySelector('video'), webs = document.querySelector('#webs');
+  function mira(){
+    var lim = innerHeight * .45, cual = null;
+    secs.forEach(function(s, i){ if (s && s.getBoundingClientRect().top <= lim) cual = enl[i]; });
+    if (cual !== activo){
+      enl.forEach(function(a){ if (a === cual) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      activo = cual; if (!ul.matches(':hover')) posa(activo && ul.contains(activo) ? activo : null);
+    }
+    var t = sig.getBoundingClientRect().top <= 0;
+    if (t !== hero.classList.contains('tapado')) { hero.classList.toggle('tapado', t); if (hv) { if (t) hv.pause(); else hv.play().catch(function(){}); } }
+    KC.forEach(function(p, i){ var s = KC[i + 1] || webs; p.classList.toggle('tapado', s.getBoundingClientRect().top <= 0); });
+  }
+  addEventListener('scroll', mira, { passive: true }); addEventListener('resize', mira); mira();
+  
+  var lista = document.querySelector('.lista'), caja = lista.querySelector('.caja');
+  var filas = [].slice.call(lista.querySelectorAll('.renglon')), fotos = document.querySelectorAll('.visor img');
+  var dentro = false, fino = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  filas.forEach(function(f, i){
+    f.addEventListener('mouseenter', function(){
+      fotos.forEach(function(im, j){ im.classList.toggle('on', i === j); });
+      if (!fino || !window.gsap) return;
+      if (!dentro){
+        dentro = true;
+        gsap.set(caja, { y: f.offsetTop, height: f.offsetHeight, transformOrigin: 'left center' });
+        gsap.to(caja, { scaleX: 1, duration: .55, ease: 'power3.out', overwrite: true });
+      } else gsap.to(caja, { y: f.offsetTop, height: f.offsetHeight, scaleX: 1, duration: .45, ease: 'power3.out', overwrite: true });
+    });
+  });
+  lista.addEventListener('mouseleave', function(){
+    dentro = false;
+    if (fino && window.gsap) { gsap.set(caja, { transformOrigin: 'right center' }); gsap.to(caja, { scaleX: 0, duration: .5, ease: 'power3.inOut', overwrite: true }); }
+  });
+  if (menos || !window.gsap || !window.ScrollTrigger) return;
+  document.documentElement.classList.add('js');
+  gsap.registerPlugin(ScrollTrigger);
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) scrollTo(0, 0);
+  ScrollTrigger.addEventListener('refresh', mira);
+  if (window.Lenis){
+    var lenis = new Lenis({ duration: 1.1 }); window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', mira);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var d = a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
+      if (d) a.addEventListener('click', function(e){ e.preventDefault(); lenis.scrollTo(sitio(d), { duration: 1.6, easing: function(x){ return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; } }); });
+    });
+  }
+  
+  var suave = 'expo.out';
+  document.querySelectorAll('[data-parte]').forEach(function(el){
+    (function parte(n){
+      [].slice.call(n.childNodes).forEach(function(h){
+        if (h.nodeType === 3){
+          var f = document.createDocumentFragment();
+          h.textContent.split(/([ \t\n\r]+)/).forEach(function(p){
+            if (!p.trim()) { f.appendChild(document.createTextNode(p)); return; }
+            var o = document.createElement('span'), s = document.createElement('span'); o.className = 'pal'; s.textContent = p; o.appendChild(s); f.appendChild(o);
+          });
+          n.replaceChild(f, h);
+        } else if (h.nodeType === 1) parte(h);
+      });
+    })(el);
+    gsap.to(el.querySelectorAll('.pal > span'), { filter: 'blur(0px)', opacity: 1, duration: 1.4, ease: 'power2.out', stagger: .07, onComplete: function(){ this.targets().forEach(function(t){ t.style.filter = 'none'; }); }, delay: el.closest('.hero') ? .25 : 0, scrollTrigger: { trigger: el, start: 'top 92%' } });
+  });
+  ScrollTrigger.batch('[data-sube]', { start: 'top 94%', onEnter: function(els){ gsap.to(els, { opacity: 1, filter: 'blur(0px)', duration: 1.2, ease: 'power2.out', stagger: .08, onComplete: function(){ this.targets().forEach(function(t){ t.style.filter = 'none'; }); } }); } });
+  gsap.utils.toArray('[data-abre]').forEach(function(m, i){
+    var img = m.querySelector('img');
+    gsap.timeline({ scrollTrigger: { trigger: m, start: 'top 94%' }, delay: (i % 4) * .09 })
+      .to(m, { clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: suave }, 0)
+      .from(img, { scale: 1.18, duration: 1.6, ease: suave, clearProps: 'transform' }, 0);
+  });
+  document.querySelectorAll('.lee').forEach(function(el){
+    (function parte(n){ [].slice.call(n.childNodes).forEach(function(h){
+      if (h.nodeType === 3){ var f = document.createDocumentFragment(); h.textContent.split(/([ \t\n\r]+)/).forEach(function(p){ if (!p.trim()) { f.appendChild(document.createTextNode(p)); return; } var w = document.createElement('span'); w.className = 'w'; w.textContent = p; f.appendChild(w); }); n.replaceChild(f, h); }
+      else if (h.nodeType === 1) parte(h); }); })(el);
+    gsap.fromTo(el.querySelectorAll('.w'), { opacity: .14 }, { opacity: 1, ease: 'none', stagger: .1, scrollTrigger: { trigger: el, start: 'top 82%', end: 'bottom 55%', scrub: true } });
+  });
+  KC.forEach(function(p, i){
+    var sig = KC[i + 1] || document.querySelector('#webs'), st = function(){ return { trigger: sig, start: 'top 70%', end: 'top top', scrub: true }; };
+    var int = p.querySelector('.int'), tr = st();
+    tr.onToggle = function(self){ if (!self.isActive && self.progress === 0) int.style.filter = 'none'; };
+    gsap.fromTo(int, { scale: 1, filter: 'blur(0px)' }, { scale: .95, filter: 'blur(10px)', ease: 'none', immediateRender: false, scrollTrigger: tr });
+    var velo = document.createElement('div'); velo.className = 'velo'; velo.setAttribute('aria-hidden', 'true'); p.appendChild(velo);
+    gsap.to(velo, { opacity: .45, ease: 'none', scrollTrigger: st() });
+  });
+  gsap.to('.hero .dentro', { filter: 'blur(14px)', opacity: .42, scale: 1.03, ease: 'none', scrollTrigger: { start: 0, end: function(){ return document.querySelector('.hero').offsetHeight; }, invalidateOnRefresh: true, scrub: true } });   
+})();
+</script>
+</body>
+</html>
